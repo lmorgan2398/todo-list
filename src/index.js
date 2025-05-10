@@ -19,6 +19,8 @@ const createList = function(){
 const list = createList();
 
 
+
+
 const projects = (function(){
     let prjs = [];
 
@@ -51,6 +53,7 @@ const projects = (function(){
 
 
 
+
 const storage = (function(){
     const packageList = (ls) => JSON.stringify(ls);
 
@@ -71,6 +74,8 @@ const storage = (function(){
 })();
 
 
+
+
 const createTodo = function(title, description, priority, due){
     return {
         title: title,
@@ -86,5 +91,17 @@ const createTodo = function(title, description, priority, due){
                 this.completion = 'incomplete';
             }
         }
+    }
+}
+
+const newTodo = function(){
+    let newTitle = prompt('Enter Title');
+    let newDescription = prompt('Enter Description');
+    let newPriority = prompt('Enter Priority');
+    let newDue = prompt('Enter Due');
+    let confirm = prompt('Confirm Entry? Y or N');
+    if(confirm = 'Y'){
+        let newTodo = createTodo(newTitle, newDescription, newPriority, newDue);
+        list.addTodo(newTodo);
     }
 }
