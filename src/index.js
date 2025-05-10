@@ -1,7 +1,4 @@
-console.log('working');
-
-// Create module to store and manipulate the array of todos
-const list = (function(){
+const createList = function(){
     let ls = [];
 
     const getList = () => ls;
@@ -17,7 +14,41 @@ const list = (function(){
     const removeTodo = (index) => ls.splice(index, 1);
 
     return { getList, setList, getTodo, setTodo, addTodo, removeTodo }
+};
+
+const list = createList();
+
+
+const projects = (function(){
+    let prjs = [];
+
+    const getProjects = () => prjs;
+
+    const setProjects = (array) => prjs = array;
+
+    const getProject = (index) => prjs[index];
+
+    const setProject = (index, prj) => prjs[index] = prj;
+
+    const addProject = (prj) => prjs.push(prj);
+
+    const removeProject = (index) => prjs.splice(index, 1);
+
+    const createProject = function(name){
+        const { getList, setList, getTodo, setTodo, addTodo, removeTodo } = createList();
+    
+        let currentName = name;
+    
+        const getName = () => currentName;
+    
+        const setName = (newName) => currentName = newName;
+    
+        return { getList, setList, getTodo, setTodo, addTodo, removeTodo, getName, setName }
+    }
+
+    return { getProjects, setProjects, getProject, setProject, addProject, removeProject, createProject }
 })();
+
 
 
 const storage = (function(){
@@ -46,7 +77,7 @@ const createTodo = function(title, description, priority, due){
         description: description,
         priority: priority,
         due: due,
-        
+
         completion: 'incomplete',
         toggle: function() {
             if(this.completion == 'incomplete'){
