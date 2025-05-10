@@ -38,3 +38,22 @@ const storage = (function(){
 
     return { saveList, loadList }
 })();
+
+
+const createTodo = function(title, description, priority, due){
+    return {
+        title: title,
+        description: description,
+        priority: priority,
+        due: due,
+        
+        completion: 'incomplete',
+        toggle: function() {
+            if(this.completion == 'incomplete'){
+                this.completion = 'complete';
+            } else {
+                this.completion = 'incomplete';
+            }
+        }
+    }
+}
