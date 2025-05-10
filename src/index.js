@@ -4,11 +4,17 @@ console.log('working');
 const list = (function(){
     let ls = [];
 
-    const get = () => ls;
+    const getList = () => ls;
 
-    const add = (object) => ls.push(object);
+    const setList = (array) => ls = array;
 
-    const remove = (index) => ls.splice(index, 1);
+    const getTodo = (index) => ls[index];
 
-    return { get, add, remove }
+    const setTodo = (index, todo) => ls[index] = todo;
+
+    const addTodo = (todo) => ls.push(todo);
+
+    const removeTodo = (index) => ls.splice(index, 1);
+
+    return { getList, setList, getTodo, setTodo, addTodo, removeTodo }
 })();
