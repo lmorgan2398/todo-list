@@ -17,6 +17,7 @@ const createList = function(){
 };
 
 const list = createList();
+let todoList = list.getList();
 
 
 
@@ -105,3 +106,40 @@ const newTodo = function(){
         list.addTodo(newTodo);
     }
 }
+
+
+
+
+const todoListElement = document.querySelector('.todo-list');
+
+const display = (function(){
+    renderTodo = (parent, todo) => {
+        let todoElement = document.createElement('div');
+
+        let titleElement = document.createElement('h3');
+        titleElement.textContent = todo.title;
+        todoElement.appendChild(titleElement);
+
+        let descriptionElement = document.createElement('p');
+        descriptionElement.textContent = todo.description;
+        todoElement.appendChild(descriptionElement);
+
+        let priorityElement = document.createElement('p');
+        priorityElement.textContent = todo.priority;
+        todoElement.appendChild(priorityElement);
+
+        let dueElement = document.createElement('p');
+        dueElement.textContent = todo.due;
+        todoElement.appendChild(dueElement);
+
+        parent.appendChild(todoElement);
+    }
+
+    const renderList = (parent, list) => {
+        list.forEach((todo) => {
+            renderTodo(parent, todo);
+        })
+    }
+
+    return { renderList }
+})();
