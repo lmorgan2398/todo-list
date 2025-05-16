@@ -1,3 +1,5 @@
+import './styles.css';
+
 const createList = function(){
     let ls = [];
 
@@ -18,7 +20,7 @@ const createList = function(){
 
 const list = createList();
 let todoList = list.getList();
-
+window.list = list;
 
 
 
@@ -95,25 +97,12 @@ const createTodo = function(title, description, priority, due){
     }
 }
 
-const newTodo = function(){
-    let newTitle = prompt('Enter Title');
-    let newDescription = prompt('Enter Description');
-    let newPriority = prompt('Enter Priority');
-    let newDue = prompt('Enter Due');
-    let confirm = prompt('Confirm Entry? Y or N');
-    if(confirm = 'Y'){
-        let newTodo = createTodo(newTitle, newDescription, newPriority, newDue);
-        list.addTodo(newTodo);
-    }
-}
-
-
 
 
 const todoListElement = document.querySelector('.todo-list');
 
 const display = (function(){
-    renderTodo = (parent, todo) => {
+    const renderTodo = (parent, todo) => {
         let todoElement = document.createElement('div');
 
         let titleElement = document.createElement('h3');
@@ -143,3 +132,28 @@ const display = (function(){
 
     return { renderList }
 })();
+
+const newTodoButton = document.querySelector('.todo-list button');
+const dialog = document.querySelector('dialog');
+
+newTodoButton.addEventListener('click', () => {
+    dialog.showModal();
+})
+
+const saveNewTodoButton = document.querySelector('dialog form button');
+const titleInput = document.querySelector('dialog form #title');
+const descriptionInput = document.querySelector('dialog form #description');
+const priorityInput = document.querySelector('dialog form #priority');
+const dueInput = document.querySelector('dialog form #due');
+
+saveNewTodoButton.addEventListener('click', () => {
+    let newTitle = titleInput.value;
+    let newDescription = descriptionInput.value;
+    let newPriority = priorityInput.value;
+    let newDue = dueInput.value;
+
+    let newTodo = createTodo(newTitle, newDescription, newPriority, newDue);
+    list.addTodo(newTodo);
+
+    dialog.close();
+})
