@@ -9,8 +9,10 @@
     <div class="todo-list-container">
         <div class="todo-list">
             <h1>To-Do List</h1>
-            <ul class="todos"></ul>
-            <button>+</button>
+            <div class="list">
+                <ul class="todos"></ul>
+                <button>+<span>New Todo</span></button>
+            </div>
         </div>
     </div>
     <dialog>
@@ -30,7 +32,7 @@
                 </select>
             </label>
             <label for="due">Due Date:
-                <input type="datetime-local" name="due" id="due">
+                <input type="date" name="due" id="due">
             </label>
             <button type="button">Save</button>
         </form>

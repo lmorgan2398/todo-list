@@ -1,3 +1,4 @@
+import * as display from "./display.js";
 import './styles.css';
 
 const createList = function(){
@@ -23,8 +24,7 @@ let todoList = list.getList();
 window.list = list;
 
 
-
-const projects = (function(){
+const createProjects = function(){
     let prjs = [];
 
     const getProjects = () => prjs;
@@ -52,9 +52,11 @@ const projects = (function(){
     }
 
     return { getProjects, setProjects, getProject, setProject, addProject, removeProject, createProject }
-})();
+};
 
-
+const projects = createProjects();
+let projectsList = projects.getProjects();
+window.projects = projects;
 
 
 const storage = (function(){
@@ -99,39 +101,7 @@ const createTodo = function(title, description, priority, due){
 
 
 
-const todoListElement = document.querySelector('.todo-list');
-
-const display = (function(){
-    const renderTodo = (parent, todo) => {
-        let todoElement = document.createElement('div');
-
-        let titleElement = document.createElement('h3');
-        titleElement.textContent = todo.title;
-        todoElement.appendChild(titleElement);
-
-        let descriptionElement = document.createElement('p');
-        descriptionElement.textContent = todo.description;
-        todoElement.appendChild(descriptionElement);
-
-        let priorityElement = document.createElement('p');
-        priorityElement.textContent = todo.priority;
-        todoElement.appendChild(priorityElement);
-
-        let dueElement = document.createElement('p');
-        dueElement.textContent = todo.due;
-        todoElement.appendChild(dueElement);
-
-        parent.appendChild(todoElement);
-    }
-
-    const renderList = (parent, list) => {
-        list.forEach((todo) => {
-            renderTodo(parent, todo);
-        })
-    }
-
-    return { renderList }
-})();
+const todoListElement = document.querySelector('.todos');
 
 const newTodoButton = document.querySelector('.todo-list button');
 const dialog = document.querySelector('dialog');
@@ -156,4 +126,11 @@ saveNewTodoButton.addEventListener('click', () => {
     list.addTodo(newTodo);
 
     dialog.close();
+
+    titleInput.value = '';
+    descriptionInput.value = '';
+    priorityInput.value = '';
+    dueInput.value = '';
+
+    display.renderList(todoListElement, todoList);
 })
