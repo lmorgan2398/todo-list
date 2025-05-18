@@ -13,7 +13,7 @@ const renderTodo = (parent, todo) => {
     todoElement.classList.add(elementPriority);
 
     let dueElement = document.createElement('p');
-    dueElement.textContent = todo.due;
+    dueElement.textContent = `Due ${todo.due}`;
     todoElement.appendChild(dueElement);
 
     parent.appendChild(todoElement);

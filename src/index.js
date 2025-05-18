@@ -1,60 +1,14 @@
 import * as display from "./display.js";
+import * as lists from "./lists.js";
+import { format } from "date-fns";
 import './styles.css';
 
-const createList = function(){
-    let ls = [];
-
-    const getList = () => ls;
-
-    const setList = (array) => ls = array;
-
-    const getTodo = (index) => ls[index];
-
-    const setTodo = (index, todo) => ls[index] = todo;
-
-    const addTodo = (todo) => ls.push(todo);
-
-    const removeTodo = (index) => ls.splice(index, 1);
-
-    return { getList, setList, getTodo, setTodo, addTodo, removeTodo }
-};
-
-const list = createList();
+const list = lists.createList();
 let todoList = list.getList();
 window.list = list;
 
 
-const createProjects = function(){
-    let prjs = [];
-
-    const getProjects = () => prjs;
-
-    const setProjects = (array) => prjs = array;
-
-    const getProject = (index) => prjs[index];
-
-    const setProject = (index, prj) => prjs[index] = prj;
-
-    const addProject = (prj) => prjs.push(prj);
-
-    const removeProject = (index) => prjs.splice(index, 1);
-
-    const createProject = function(name){
-        const { getList, setList, getTodo, setTodo, addTodo, removeTodo } = createList();
-    
-        let currentName = name;
-    
-        const getName = () => currentName;
-    
-        const setName = (newName) => currentName = newName;
-    
-        return { getList, setList, getTodo, setTodo, addTodo, removeTodo, getName, setName }
-    }
-
-    return { getProjects, setProjects, getProject, setProject, addProject, removeProject, createProject }
-};
-
-const projects = createProjects();
+const projects = lists.createProjects();
 let projectsList = projects.getProjects();
 window.projects = projects;
 
@@ -120,7 +74,7 @@ saveNewTodoButton.addEventListener('click', () => {
     let newTitle = titleInput.value;
     let newDescription = descriptionInput.value;
     let newPriority = priorityInput.value;
-    let newDue = dueInput.value;
+    let newDue = format(dueInput.value, "MMM d, yyyy");
 
     let newTodo = createTodo(newTitle, newDescription, newPriority, newDue);
     list.addTodo(newTodo);
