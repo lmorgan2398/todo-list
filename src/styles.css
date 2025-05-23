@@ -73,7 +73,7 @@ body {
 }
 
 .todo-info {
-    background-color: rgb(189, 200, 219);
+    background-color: rgb(203, 207, 214);
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     display: flex;
@@ -125,4 +125,158 @@ body {
 
 .toggle-info:hover {
     cursor: grab;
+}
+
+dialog {
+    display: flex;
+    flex-direction: column;
+    width: max(50%, 40rem);
+    margin-top: 4rem;
+    justify-self: center;
+    border-radius: 10px;
+    border: 2px solid black;
+    padding: 0;
+}
+
+dialog h2 {
+    padding: 12px 0px 12px 12px;
+    width: 100% - 12px;
+    border-bottom: 2px solid black;
+    background-color: lightgray;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+}
+
+dialog form {
+    width: 100%;
+}
+
+form {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+dialog .text-info {
+    padding: 18px 12px 12px;
+}
+
+dialog .text-info,
+dialog .text-info label {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+dialog .text-info label {
+    margin-right: 6px;
+}
+
+dialog .text-info input,
+dialog .text-info textarea {
+    margin-left: 8px;
+}
+
+dialog #title {
+    font-size: 1rem;
+    outline: 1px solid black;
+    border-radius: 2px;
+    padding: 2px;
+}
+
+dialog #description {
+    font-size: 1rem;
+    outline: 1px solid black;
+    border-radius: 2px;
+    padding: 2px;
+    resize: none;
+    white-space: nowrap;
+    overflow: hidden;
+    flex: 2;
+}
+
+dialog .description {
+    flex: 2;
+    margin-left: 6px;
+}
+
+dialog .other-info {
+    padding: 6px 12px 12px;
+}
+
+fieldset legend,
+fieldset label,
+fieldset div {
+    float: left;
+    font-size: 1.2rem;
+}
+
+fieldset {
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+fieldset div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+input[type="radio"] {
+    appearance: none;
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 24px;
+    margin: 1px 4px;
+}
+
+input[type="radio"]:hover {
+    cursor: grab;
+}
+
+#blue {
+    border: 4px solid blue;
+    outline: 2px solid rgb(20, 0, 133);
+
+}
+
+#blue:checked {
+    background-color: blue;
+}
+
+#yellow {
+    border: 4px solid rgb(233, 233, 4);
+    outline: 2px solid rgb(163, 160, 0);
+}
+
+#yellow:checked {
+    background-color: rgb(233, 233, 4);
+}
+
+#red {
+    border: 4px solid red;
+    outline: 2px solid rgb(172, 0, 0);
+}
+
+#red:checked {
+    background-color: red;
+}
+
+dialog .other-info {
+    display: flex;
+}
+
+dialog::backdrop {
+    background: rgba(0, 0, 0, 0.226);
+}
+
+#due {
+    font-size: 1.2rem;
+    outline: 1px solid black;
+    border-radius: 2px;
+}
+
+.due {
+    display: flex;
+    align-items: center;
 }

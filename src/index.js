@@ -1,59 +1,12 @@
 import * as display from "./display.js";
-import * as lists from "./lists.js";
+import * as list from "./list.js";
+import * as storage from "./storage.js";
+import * as todo from "./todo.js";
 import { format } from "date-fns";
 import './styles.css';
 
-const list = lists.createList();
-let todoList = list.getList();
-window.list = list;
-
-
-const projects = lists.createProjects();
-let projectsList = projects.getProjects();
-window.projects = projects;
-
-
-const storage = (function(){
-    const packageList = (ls) => JSON.stringify(ls);
-
-    const unpackageList = (ls) => JSON.parse(ls);
-
-    const saveList = (ls) => {
-        let listToSave = packageList(ls);
-        localStorage.setItem('todo-list', listToSave);
-    }
-
-    const loadList = () => {
-        let listToUnpackage = localStorage.getItem('todo-list');
-        let listToLoad = unpackageList(listToUnpackage);
-        return listToLoad;
-    }
-
-    return { saveList, loadList }
-})();
-
-
-
-
-const createTodo = function(title, description, priority, due){
-    return {
-        title: title,
-        description: description,
-        priority: priority,
-        due: due,
-
-        completion: 'incomplete',
-        toggle: function() {
-            if(this.completion == 'incomplete'){
-                this.completion = 'complete';
-            } else {
-                this.completion = 'incomplete';
-            }
-        }
-    }
-}
-
-
+let todoList = list.createList();
+window.todoList = todoList;
 
 const todoListElement = document.querySelector('.todos');
 
@@ -77,7 +30,7 @@ saveNewTodoButton.addEventListener('click', () => {
     let newDue = format(dueInput.value, "MMM d, yyyy");
 
     let newTodo = createTodo(newTitle, newDescription, newPriority, newDue);
-    list.addTodo(newTodo);
+    todoList.addTodo(newTodo);
 
     dialog.close();
 

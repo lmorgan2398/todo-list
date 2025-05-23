@@ -32,26 +32,37 @@
         <div class="completed"></div>
     </div>
 </div>
-<dialog>
+<dialog open>
     <h2>New Todo</h2>
     <form>
-        <label for="title">Title:
-            <input type="text" name="title" id="title" maxlength="50">
-        </label>
-        <label for="description">Description:
-            <textarea name="description" id="description"></textarea>
-        </label>
-        <label for="priority">Priority:
-            <select name="priority" id="priority">
-                <option value="low">Low</option>
-                <option value="medium">Medium</option>
-                <option value="high">High</option>
-            </select>
-        </label>
-        <label for="due">Due Date:
-            <input type="date" name="due" id="due">
-        </label>
-        <button type="button">Save</button>
+        <div class="text-info">
+            <label for="title">Title:
+                <input type="text" name="title" id="title" maxlength="50">
+            </label>
+            <label class="description" for="description">Description:
+                <textarea name="description" id="description" rows="1"></textarea>
+            </label>
+        </div>
+        <div class="other-info">
+            <fieldset>
+                <legend>Priority:</legend>
+                <div>
+                    <label for="blue">
+                        <input type="radio" id="blue" name="priority" value="blue" checked>
+                    </label>
+                    <label for="yellow">
+                        <input type="radio" name="priority" id="yellow" value="yellow">
+                    </label>
+                    <label for="red">
+                        <input type="radio" name="priority" id="red" value="red">
+                    </label>
+                </div>
+            </fieldset>
+            <label for="due" class="due">Due Date:
+                <input type="date" name="due" id="due">
+            </label>
+            <button type="button">Save</button>
+        </div>
     </form>
 </dialog>
     <script src="index.js" type="module"></script>
