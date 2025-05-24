@@ -17,15 +17,26 @@ const renderTodo = (parent, todo) => {
     todoElement.appendChild(dueElement);
 
     parent.appendChild(todoElement);
+
+    return todoElement;
 }
 
 const renderList = (parent, list) => {
     while(parent.firstChild){
         parent.removeChild(parent.firstChild);
     }
-    list.forEach((todo) => {
-        renderTodo(parent, todo);
+    list.forEach((todo, index) => {
+        let todoElement = renderTodo(parent, todo);
+        todoElement.dataset.index = index;
     })
 }
 
-export { renderList };
+const toggleInfo = (todoElement) => {
+    if(todoElement.classList.contains("collapsed")){
+        todoElement.classList.remove("collapsed");
+    } else {
+        todoElement.classList.add("collapsed");
+    }
+}
+
+export { renderList, toggleInfo };

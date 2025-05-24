@@ -13,6 +13,15 @@ const todoListElement = document.querySelector('.todos');
 const newTodoButton = document.querySelector('.todo-list button');
 const dialog = document.querySelector('dialog');
 
+document.addEventListener('click', (e) => {
+    console.log('working');
+    if(e.target.classList.contains('toggle-info')){
+        let todoElement = e.target.closest('.todo');
+        display.toggleInfo(todoElement);
+    }
+});
+
+
 newTodoButton.addEventListener('click', () => {
     dialog.showModal();
 })
