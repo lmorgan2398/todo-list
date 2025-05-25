@@ -176,6 +176,14 @@ body {
     font-size: 1.5rem;
 }
 
+.toggle-info {
+    transform: rotate(180deg);
+}
+
+.collapsed .toggle-info {
+    transform: rotate(0deg);
+}
+
 .toggle-info:hover {
     cursor: grab;
 }
@@ -333,4 +341,11 @@ dialog::backdrop {
 .due {
     display: flex;
     align-items: center;
+}
+
+.delete {
+    position: relative;
+    right: -17.6rem;
+    background-color: inherit;
+    font-size: 1rem;
 }
