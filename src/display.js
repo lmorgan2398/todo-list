@@ -1,22 +1,59 @@
 const renderTodo = (parent, todo) => {
-    let todoElement = document.createElement('li');
+    let todoElementContainer = document.createElement('div');
+    todoElementContainer.classList.add('todo-container');
+    parent.appendChild(todoElementContainer);
 
-    let titleElement = document.createElement('h3');
-    titleElement.textContent = todo.title;
-    todoElement.appendChild(titleElement);
+    let todoElement = document.createElement('div');
+    todoElement.classList.add('todo');    
+    todoElementContainer.appendChild(todoElement);
 
-    let descriptionElement = document.createElement('p');
-    descriptionElement.textContent = todo.description;
-    todoElement.appendChild(descriptionElement);
+    let todoHeader = document.createElement('div');
+    todoHeader.classList.add('todo-header');
+    todoElement.appendChild(todoHeader);
 
-    let elementPriority = todo.priority;
-    todoElement.classList.add(elementPriority);
+    let completedButton = document.createElement('input');
+    completedButton.type = 'checkbox';
+    completedButton.name = 'todo-completed';
+    completedButton.id = 'todo-completed';
+    todoHeader.appendChild(completedButton);
 
-    let dueElement = document.createElement('p');
-    dueElement.textContent = `Due ${todo.due}`;
-    todoElement.appendChild(dueElement);
+    let headerText = document.createElement('div');
+    headerText.classList.add('header-text');
+    todoHeader.appendChild(headerText);
 
-    parent.appendChild(todoElement);
+    let todoTitle = document.createElement('h3');
+    todoTitle.classList.add('todo-title');
+    todoTitle.textContent = todo.title;
+    headerText.appendChild(todoTitle);
+
+    let dueDate = document.createElement('p');
+    dueDate.classList.add('due-date');
+    dueDate.textContent = `Due ${todo.due}`;
+    headerText.appendChild(dueDate);
+
+    let toggleInfo = document.createElement('button');
+    toggleInfo.classList.add('toggle-info');
+    toggleInfo.textContent = 'v';
+    todoHeader.appendChild(toggleInfo);
+
+    let todoInfo = document.createElement('div');
+    todoInfo.classList.add('todo-info');
+    todoElement.appendChild(todoInfo);
+
+    let todoDescription = document.createElement('p');
+    todoDescription.classList.add('description');
+    todoDescription.textContent = todo.description;
+    todoInfo.appendChild(todoDescription);
+
+    let todoCreationDate = document.createElement('p');
+    todoCreationDate.classList.add('creation-date');
+    todoCreationDate.textContent = `Created on ${todo.created}`;
+    todoInfo.appendChild(todoCreationDate);
+
+    let deleteButton = document.createElement('button');
+    deleteButton.classList.add('delete');
+    deleteButton.textContent = 'x';
+    todoInfo.appendChild(deleteButton);
 
     return todoElement;
 }
