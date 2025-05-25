@@ -51,18 +51,42 @@ body {
     flex-direction: column;
     width: 20rem;
     border-radius: 10px;
-    box-shadow: 0px 0px 20px -2px rgb(132, 140, 158);
     color: rgb(0, 31, 0);
+}
+
+.blue.todo {
+    box-shadow: 0px 0px 20px -2px rgb(132, 140, 158);
+}
+
+.yellow.todo {
+    box-shadow: 0px 0px 20px -2px rgb(158, 154, 132);
+}
+
+.red .todo {
+    box-shadow: 0px 0px 20px -2px rgb(158, 134, 132);
 }
 
 .todo-header {
     display: flex;
-    background-color: rgb(85, 127, 218);
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
     padding: 0.5rem;
-    border: 2px solid rgb(0, 19, 128);
     align-items: center;
+}
+
+.blue .todo-header {
+    background-color: rgb(85, 127, 218);
+    border: 2px solid rgb(0, 19, 128);
+}
+
+.yellow .todo-header {
+    background-color: rgb(218, 209, 85);
+    border: 2px solid rgb(128, 126, 0);
+}
+
+.red .todo-header {
+    background-color: rgb(218, 94, 85);
+    border: 2px solid rgb(128, 19, 0);
 }
 
 .active,
@@ -70,16 +94,33 @@ body {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
     grid-auto-rows: min-content;
+    align-items: start;
+    gap: 1rem;
 }
 
 .todo-info {
-    background-color: rgb(203, 207, 214);
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
     display: flex;
     flex-direction: column;
     padding: 0.5rem;
+}
+
+.blue .todo-info {
+    background-color: rgb(203, 207, 214);
     border: 2px solid rgb(0, 19, 128);
+    border-top: none;
+}
+
+.yellow .todo-info {
+    background-color: rgb(214, 212, 203);
+    border: 2px solid rgb(128, 126, 0);
+    border-top: none;
+}
+
+.red .todo-info {
+    background-color: rgb(214, 204, 203);
+    border: 2px solid rgb(128, 19, 0);
     border-top: none;
 }
 
@@ -108,6 +149,18 @@ body {
     content: '';
     border: 2px solid rgb(85, 127, 218);
     margin: 0 .75rem 0 .25rem;
+}
+
+.blue #todo-completed:before {
+    border: 2px solid rgb(85, 127, 218);
+}
+
+.yellow #todo-completed:before {
+    border: 2px solid rgb(218, 209, 85);
+}
+
+.red #todo-completed:before {
+    border: 2px solid rgb(218, 94, 85);
 }
 
 #todo-completed:hover:before {

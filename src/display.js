@@ -5,6 +5,8 @@ const renderTodo = (parent, todo) => {
 
     let todoElement = document.createElement('div');
     todoElement.classList.add('todo');    
+    todoElement.classList.add('collapsed');
+    todoElement.classList.add(`${todo.priority}`);
     todoElementContainer.appendChild(todoElement);
 
     let todoHeader = document.createElement('div');

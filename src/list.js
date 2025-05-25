@@ -1,19 +1,15 @@
-const createList = function(){
-    let ls = [];
+let ls = [];
 
-    const getList = () => ls;
+const getList = () => ls;
 
-    const setList = (array) => ls = array;
+const setList = (array) => ls = array;
 
-    const getTodo = (index) => ls[index];
+const getTodo = (index) => ls[index];
 
-    const setTodo = (index, todo) => ls[index] = todo;
+const setTodo = (index, todo) => ls[index] = todo;
 
-    const addTodo = (todo) => ls.push(todo);
+const addTodo = (todo) => ls.push(todo);
 
-    const removeTodo = (index) => ls.splice(index, 1);
+const removeTodo = (index) => ls.splice(index, 1);
 
-    return { getList, setList, getTodo, setTodo, addTodo, removeTodo }
-};
-
-export { createList }
+export { getList, setList, getTodo, setTodo, addTodo, removeTodo };
