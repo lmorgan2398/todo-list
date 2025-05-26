@@ -297,6 +297,7 @@ fieldset {
     padding: 0;
     display: flex;
     align-items: center;
+    margin-right: .5rem;
 }
 
 fieldset div {
@@ -357,6 +358,7 @@ dialog::backdrop {
     font-size: 1.2rem;
     outline: 1px solid black;
     border-radius: 2px;
+    margin-left: .25rem;
 }
 
 .due {
@@ -370,4 +372,20 @@ dialog::backdrop {
     background-color: inherit;
     font-size: 1rem;
     color: inherit;
+}
+
+.save-button {
+    position: absolute;
+    right: .5rem;
+    bottom: .5rem;
+    border: 2px solid black;
+    border-radius: 4px;
+    font-size: 1rem;
+    padding: .25rem .75rem;
+    background-color: lightgray;
+}
+
+.save-button:hover {
+    background-color: rgb(223, 223, 223);
+    cursor: grab;
 }
