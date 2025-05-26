@@ -41,7 +41,7 @@ body {
     color: whitesmoke;
     background-color: rgb(41, 41, 41);
     border-radius: 6px;
-    margin: .75rem 1.5rem;
+    margin: 1.5rem 2rem;
     font-weight: bold;
 }
 
@@ -112,7 +112,17 @@ body {
     grid-auto-rows: min-content;
     align-items: start;
     gap: 1rem;
-    padding: 0 1rem;
+    padding: 0 2rem;
+}
+
+.active-header,
+.completed-header {
+    font-size: 2rem;
+    color: black;
+    display: block;
+    margin: 1rem 2.5rem;
+    border-bottom: 2px solid black;
+    padding-bottom: .5rem;
 }
 
 .todo-info {
@@ -121,6 +131,7 @@ body {
     display: flex;
     flex-direction: column;
     padding: 0.5rem;
+    position: relative;
 }
 
 .blue .todo-info {
@@ -181,8 +192,8 @@ body {
 }
 
 #todo-completed:hover:before {
-    border: 2px solid rgb(34, 182, 34);
-    background-color: rgb(205, 238, 205);
+    border: 2px solid rgb(28, 172, 28);
+    background-color: rgb(74, 223, 74);
     cursor: grab;
 }
 
@@ -190,7 +201,9 @@ body {
     background-color: inherit;
     position: absolute;
     right: .5rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
+    text-align: center;
+    line-height: 1rem;
 }
 
 .toggle-info {
@@ -366,9 +379,15 @@ dialog::backdrop {
     align-items: center;
 }
 
+.creation-date,
+.due-date {
+    font-style: italic;
+}
+
 .delete {
-    position: relative;
-    right: -17.6rem;
+    position: absolute;
+    right: .15rem;
+    bottom: .25rem;
     background-color: inherit;
     font-size: 1rem;
     color: inherit;

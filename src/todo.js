@@ -11,12 +11,12 @@ const createTodo = function(title, description, priority, due, project){
         project: project,
         created: formattedDate,
 
-        completion: 'incomplete',
+        completion: 'active',
         toggle: function() {
-            if(this.completion == 'incomplete'){
-                this.completion = 'complete';
+            if(this.completion == 'active'){
+                this.completion = 'completed';
             } else {
-                this.completion = 'incomplete';
+                this.completion = 'active';
             }
         }
     }

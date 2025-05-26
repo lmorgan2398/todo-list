@@ -35,7 +35,7 @@ const renderTodo = (parent, todo) => {
 
     let toggleInfo = document.createElement('button');
     toggleInfo.classList.add('toggle-info');
-    toggleInfo.textContent = 'v';
+    toggleInfo.textContent = `\u25BC`;
     todoHeader.appendChild(toggleInfo);
 
     let todoInfo = document.createElement('div');
@@ -54,7 +54,7 @@ const renderTodo = (parent, todo) => {
 
     let deleteButton = document.createElement('button');
     deleteButton.classList.add('delete');
-    deleteButton.textContent = 'x';
+    deleteButton.textContent = '\u2716';
     todoInfo.appendChild(deleteButton);
 
     return todoElement;
