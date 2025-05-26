@@ -11,22 +11,19 @@ let newTodo3 = todo.createTodo('Eat Breakfast', 'Anything is good, just get some
 list.addTodo(newTodo);
 list.addTodo(newTodo2);
 list.addTodo(newTodo3);
-console.log(list.getList());
 
 let active = document.querySelector('.active');
 display.renderList(active, list.getList());
 
-const newTodoButton = document.querySelector('.todo-list button');
-const dialog = document.querySelector('dialog');
-
 document.addEventListener('click', (e) => {
-    console.log('working');
     if(e.target.classList.contains('toggle-info')){
         let todoElement = e.target.closest('.todo');
         display.toggleInfo(todoElement);
     }
 });
 
+const newTodoButton = document.querySelector('.new-todo');
+const dialog = document.querySelector('dialog');
 
 newTodoButton.addEventListener('click', () => {
     dialog.showModal();
@@ -35,24 +32,29 @@ newTodoButton.addEventListener('click', () => {
 const saveNewTodoButton = document.querySelector('dialog form button');
 const titleInput = document.querySelector('dialog form #title');
 const descriptionInput = document.querySelector('dialog form #description');
-const priorityInput = document.querySelector('dialog form #priority');
 const dueInput = document.querySelector('dialog form #due');
 
 saveNewTodoButton.addEventListener('click', () => {
     let newTitle = titleInput.value;
     let newDescription = descriptionInput.value;
-    let newPriority = priorityInput.value;
+    let newPriority = document.querySelector('input[name="priority"]:checked').value;
     let newDue = format(dueInput.value, "MMM d, yyyy");
 
-    let newTodo = createTodo(newTitle, newDescription, newPriority, newDue);
-    todoList.addTodo(newTodo);
+    let newTodo = todo.createTodo(newTitle, newDescription, newPriority, newDue, 'none');
+    list.addTodo(newTodo);
 
     dialog.close();
 
     titleInput.value = '';
     descriptionInput.value = '';
-    priorityInput.value = '';
     dueInput.value = '';
 
-    display.renderList(todoListElement, todoList);
+    display.renderList(active, list.getList());
+})
+
+document.addEventListener('DOMContentLoaded', () => {
+    if(dialog.open){
+        console.log('working');
+        dialog.close();
+    }
 })

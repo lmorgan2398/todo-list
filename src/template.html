@@ -6,7 +6,9 @@
     <title>Todo List</title>
 </head>
 <body>
-<div class="header-container"></div>
+<div class="header-container">
+    <button class="new-todo">New To-Do</button>
+</div>
 <div class="sidebar-container"></div>
 <div class="content-container">
     <div class="lists-container">
@@ -33,37 +35,39 @@
     </div>
 </div>
 <dialog>
-    <h2>New Todo</h2>
-    <form>
-        <div class="text-info">
-            <label for="title">Title:
-                <input type="text" name="title" id="title" maxlength="50">
-            </label>
-            <label class="description" for="description">Description:
-                <textarea name="description" id="description" rows="1"></textarea>
-            </label>
-        </div>
-        <div class="other-info">
-            <fieldset>
-                <legend>Priority:</legend>
-                <div>
-                    <label for="blue">
-                        <input type="radio" id="blue" name="priority" value="blue" checked>
-                    </label>
-                    <label for="yellow">
-                        <input type="radio" name="priority" id="yellow" value="yellow">
-                    </label>
-                    <label for="red">
-                        <input type="radio" name="priority" id="red" value="red">
-                    </label>
-                </div>
-            </fieldset>
-            <label for="due" class="due">Due Date:
-                <input type="date" name="due" id="due">
-            </label>
-            <button type="button">Save</button>
-        </div>
-    </form>
+    <div class="dialog-container">
+        <h2>New Todo</h2>
+        <form>
+            <div class="text-info">
+                <label for="title">Title:
+                    <input type="text" name="title" id="title" maxlength="50">
+                </label>
+                <label class="description" for="description">Description:
+                    <textarea name="description" id="description" rows="1"></textarea>
+                </label>
+            </div>
+            <div class="other-info">
+                <fieldset>
+                    <legend>Priority:</legend>
+                    <div>
+                        <label for="blue">
+                            <input type="radio" id="blue" name="priority" value="blue" checked>
+                        </label>
+                        <label for="yellow">
+                            <input type="radio" name="priority" id="yellow" value="yellow">
+                        </label>
+                        <label for="red">
+                            <input type="radio" name="priority" id="red" value="red">
+                        </label>
+                    </div>
+                </fieldset>
+                <label for="due" class="due">Due Date:
+                    <input type="date" name="due" id="due">
+                </label>
+                <button type="button">Save</button>
+            </div>
+        </form>
+    </div>
 </dialog>
     <script src="index.js" type="module"></script>
 </body>
