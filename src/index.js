@@ -12,8 +12,7 @@ list.addTodo(newTodo);
 list.addTodo(newTodo2);
 list.addTodo(newTodo3);
 
-let active = document.querySelector('.active');
-display.renderList(active, list.getList());
+display.renderList(list.getList());
 
 document.addEventListener('click', (e) => {
     if(e.target.classList.contains('toggle-info')){
@@ -49,7 +48,7 @@ saveNewTodoButton.addEventListener('click', () => {
     descriptionInput.value = '';
     dueInput.value = '';
 
-    display.renderList(active, list.getList());
+    display.renderList(list.getList());
 })
 
 document.addEventListener('DOMContentLoaded', () => {

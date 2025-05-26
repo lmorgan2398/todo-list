@@ -60,13 +60,23 @@ const renderTodo = (parent, todo) => {
     return todoElement;
 }
 
-const renderList = (parent, list) => {
-    while(parent.firstChild){
-        parent.removeChild(parent.firstChild);
+const renderList = (list) => {
+    let active = document.querySelector('.active');
+    let completed = document.querySelector('.completed');
+    while(active.firstChild){
+        active.removeChild(active.firstChild);
+    }
+    while(completed.firstChild){
+        completed.removeChild(completed.firstChild);
     }
     list.forEach((todo, index) => {
-        let todoElement = renderTodo(parent, todo);
-        todoElement.dataset.index = index;
+        if(todo.completion == 'active'){
+            let todoElement = renderTodo(active, todo);
+            todoElement.dataset.index = index;
+        } else if(todo.completion == 'completed'){
+            let todoElement = renderTodo(completed, todo);
+            todoElement.dataset.index = index;
+        }
     })
 }
 
