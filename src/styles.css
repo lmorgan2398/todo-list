@@ -393,6 +393,10 @@ dialog::backdrop {
     color: inherit;
 }
 
+.delete:hover {
+    cursor: grab;
+}
+
 .save-button {
     position: absolute;
     right: .5rem;

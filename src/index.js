@@ -45,6 +45,18 @@ saveNewTodoButton.addEventListener('click', () => {
     display.renderList(list.getList());
 })
 
+// Event listener for deleting a todo
+document.addEventListener('click', (e) => {
+    if(e.target.classList.contains('delete')){
+        let todoElement = e.target.closest('.todo');
+        let index = todoElement.dataset.index;
+        list.removeTodo(index);
+        storage.saveList(list.getList());
+        display.renderList(list.getList());
+    }
+})
+
+// Event listener for completion checkbox
 document.addEventListener('click', (e) => {
     if(e.target.id == 'todo-completed'){
         let todoElement = e.target.closest('.todo');
