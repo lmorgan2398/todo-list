@@ -34,6 +34,7 @@ saveNewTodoButton.addEventListener('click', () => {
 
     let newTodo = todo.createTodo(newTitle, newDescription, newPriority, newDue, 'none');
     list.addTodo(newTodo);
+    storage.saveList(list.getList());
 
     dialog.close();
 
@@ -51,6 +52,7 @@ document.addEventListener('click', (e) => {
         let todo = list.getTodo(index);
         todo.toggle();
         list.setTodo(index, todo);
+        storage.saveList(list.getList());
         display.renderList(list.getList());
     }
 });
