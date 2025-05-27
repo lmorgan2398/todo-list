@@ -50,10 +50,10 @@ document.addEventListener('click', (e) => {
         let index = todoElement.dataset.index;
         let todo = list.getTodo(index);
         todo.toggle();
-        // list.setTodo(index, todo);
+        list.setTodo(index, todo);
         display.renderList(list.getList());
     }
-})
+});
 
 // Make sure dialog is closed on page load
 document.addEventListener('DOMContentLoaded', () => {
@@ -61,12 +61,24 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log('working');
         dialog.close();
     }
-    let newTodo = todo.createTodo('Brush Teeth', 'Circular motion, at least 2 minutes', 'red', 'May 25, 2025', 'none');
-    let newTodo2 = todo.createTodo('Make Bed', 'Sheets go under the decorative pillows', 'yellow', 'May 27, 2025', 'none');
-    let newTodo3 = todo.createTodo('Eat Breakfast', 'Anything is good, just get something in your belly', 'blue', 'May 25, 2025', 'none');
-    list.addTodo(newTodo);
-    list.addTodo(newTodo2);
-    list.addTodo(newTodo3);
+
+    // First try to load a saved list
+    const savedList = storage.loadList();
+
+    if(savedList && savedList.length > 0){
+        // If it exists and contains a list, load it
+        list.setList(savedList);
+    } else {
+        // If not, create some todo templates
+        let newTodo = todo.createTodo('Brush Teeth', 'Circular motion, at least 2 minutes', 'red', 'May 25, 2025', 'none');
+        let newTodo2 = todo.createTodo('Make Bed', 'Sheets go under the decorative pillows', 'yellow', 'May 27, 2025', 'none');
+        let newTodo3 = todo.createTodo('Eat Breakfast', 'Anything is good, just get something in your belly', 'blue', 'May 25, 2025', 'none');
+        list.addTodo(newTodo);
+        list.addTodo(newTodo2);
+        list.addTodo(newTodo3);
+        storage.saveList(list.getList());
+    }
 
     display.renderList(list.getList());
 })
+
