@@ -5,14 +5,6 @@ import * as todo from "./todo.js";
 import { format } from "date-fns";
 import './styles.css';
 
-let newTodo = todo.createTodo('Brush Teeth', 'Circular motion, at least 2 minutes', 'red', 'May 25, 2025', 'none');
-let newTodo2 = todo.createTodo('Make Bed', 'Sheets go under the decorative pillows', 'yellow', 'May 27, 2025', 'none');
-let newTodo3 = todo.createTodo('Eat Breakfast', 'Anything is good, just get something in your belly', 'blue', 'May 25, 2025', 'none');
-list.addTodo(newTodo);
-list.addTodo(newTodo2);
-list.addTodo(newTodo3);
-
-display.renderList(list.getList());
 
 document.addEventListener('click', (e) => {
     if(e.target.classList.contains('toggle-info')){
@@ -21,6 +13,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
+// Declare querySelectors, add functionality to newTodo buttons
 const newTodoButton = document.querySelector('.new-todo');
 const dialog = document.querySelector('dialog');
 
@@ -51,9 +44,29 @@ saveNewTodoButton.addEventListener('click', () => {
     display.renderList(list.getList());
 })
 
+document.addEventListener('click', (e) => {
+    if(e.target.id == 'todo-completed'){
+        let todoElement = e.target.closest('.todo');
+        let index = todoElement.dataset.index;
+        let todo = list.getTodo(index);
+        todo.toggle();
+        // list.setTodo(index, todo);
+        display.renderList(list.getList());
+    }
+})
+
+// Make sure dialog is closed on page load
 document.addEventListener('DOMContentLoaded', () => {
     if(dialog.open){
         console.log('working');
         dialog.close();
     }
+    let newTodo = todo.createTodo('Brush Teeth', 'Circular motion, at least 2 minutes', 'red', 'May 25, 2025', 'none');
+    let newTodo2 = todo.createTodo('Make Bed', 'Sheets go under the decorative pillows', 'yellow', 'May 27, 2025', 'none');
+    let newTodo3 = todo.createTodo('Eat Breakfast', 'Anything is good, just get something in your belly', 'blue', 'May 25, 2025', 'none');
+    list.addTodo(newTodo);
+    list.addTodo(newTodo2);
+    list.addTodo(newTodo3);
+
+    display.renderList(list.getList());
 })
