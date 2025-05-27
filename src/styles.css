@@ -33,19 +33,24 @@ body {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
     background-color: whitesmoke;
+    display: flex;
+    justify-content: flex-end;
 }
 
-.new-todo {
+.new-todo,
+.new-project {
     font-size: 1.5rem;
     padding: .75rem 1.5rem;
     color: whitesmoke;
     background-color: rgb(41, 41, 41);
     border-radius: 6px;
     margin: 1.5rem 2rem;
+    margin-left: 0;
     font-weight: bold;
 }
 
-.new-todo:hover {
+.new-todo:hover,
+.new-project:hover {
     cursor:grab;
     background-color: gray;
 }
@@ -54,6 +59,27 @@ body {
     grid-column: 1 / 2;
     grid-row: 1 / 3;
     background-color: rgb(233, 233, 233);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 10rem;
+}
+
+.projects-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.project {
+    display: flex;
+    background-color: inherit;
+    margin: 0rem 1rem;
+    padding: .5rem 1rem;
+    border-bottom: 2px solid lightgray;
+    justify-content: flex-start;
+    font-size: 1.3rem;
 }
 
 .todo-container {
@@ -125,6 +151,10 @@ body {
     padding-bottom: .5rem;
 }
 
+.todo-title {
+    font-size: 1.3rem;
+}
+
 .todo-info {
     border-bottom-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -162,6 +192,11 @@ body {
 
 .todo-info button {
     width: min-content;
+}
+
+.todo-info .description {
+    font-weight: 700;
+    margin-bottom: .25rem;
 }
 
 #todo-completed {

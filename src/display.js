@@ -88,4 +88,18 @@ const toggleInfo = (todoElement) => {
     }
 }
 
-export { renderList, toggleInfo };
+const renderProjects = (projects) => {
+    let projectList = document.querySelector('.projects-container');
+    while(projectList.firstChild){
+        projectList.removeChild(projectList.firstChild);
+    }
+    projects.forEach((project) => {
+        let projectElement = document.createElement('button');
+        projectElement.classList.add('project');
+        projectElement.textContent = project;
+        projectList.appendChild(projectElement);
+    })
+
+}
+
+export { renderList, toggleInfo, renderProjects };

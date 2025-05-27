@@ -2,6 +2,7 @@ import * as display from "./display.js";
 import * as list from "./list.js";
 import * as storage from "./storage.js";
 import * as todo from "./todo.js";
+import * as projects from "./projects.js";
 import { format } from "date-fns";
 import './styles.css';
 
@@ -43,6 +44,28 @@ saveNewTodoButton.addEventListener('click', () => {
     dueInput.value = '';
 
     display.renderList(list.getList());
+})
+
+// Add functionality to new project button
+const newProjectButton = document.querySelector('.new-project');
+const projectDialog = document.querySelector('.project-dialog');
+newProjectButton.addEventListener('click', () => {
+    projectDialog.showModal();
+})
+
+const projectButton = document.querySelector('.project-button');
+const projectNameInput = document.querySelector('#project');
+projectButton.addEventListener('click', () => {
+    let newName = projectNameInput.value;
+
+    projects.addProject(newName);
+    console.log(projects.getProjects());
+    console.log(projects.getProject(newName));
+    display.renderProjects(projects.getProjects());
+
+    projectDialog.close();
+
+    projectNameInput.value = '';
 })
 
 // Event listener for deleting a todo

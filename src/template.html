@@ -8,8 +8,12 @@
 <body>
 <div class="header-container">
     <button class="new-todo">New To-Do</button>
+    <button class="new-project">New Project</button>
 </div>
-<div class="sidebar-container"></div>
+<div class="sidebar-container">
+    <div class="projects-container">
+    </div>
+</div>
 <div class="content-container">
     <div class="lists-container">
         <h2 class="active-header">Active &#x2610;</h2>
@@ -53,6 +57,12 @@
             </div>
         </form>
     </div>
+</dialog>
+<dialog class="project-dialog">
+    <label for="project">Project Name:
+        <input type="text" name="project" id="project">
+        <button type="button" class="project-button">Save</button>
+    </label>
 </dialog>
     <script src="index.js" type="module"></script>
 </body>
