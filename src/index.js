@@ -20,6 +20,7 @@ const dialog = document.querySelector('dialog');
 
 newTodoButton.addEventListener('click', () => {
     display.renderProjectsInput(projects.getProjects());
+    display.renderDateInput(dueInput);
     dialog.showModal();
 })
 
