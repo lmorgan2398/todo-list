@@ -21,6 +21,8 @@ const dialog = document.querySelector('dialog');
 newTodoButton.addEventListener('click', () => {
     display.renderProjectsInput(projects.getProjects());
     display.renderDateInput(dueInput);
+    titleInput.style.outline = '1px solid black';
+    descriptionInput.style.outline = '1px solid black';
     dialog.showModal();
 })
 
@@ -30,22 +32,47 @@ const descriptionInput = document.querySelector('dialog form #description');
 const dueInput = document.querySelector('dialog form #due');
 
 saveNewTodoButton.addEventListener('click', () => {
-    let newTitle = titleInput.value;
-    let newDescription = descriptionInput.value;
-    let newPriority = document.querySelector('input[name="priority"]:checked').value;
-    let newDue = format(dueInput.value, "MMM d, yyyy");
+    if(titleInput.value.trim() !== '' && descriptionInput.value.trim() !== ''){
+        let newTitle = titleInput.value;
+        let newDescription = descriptionInput.value;
+        let newPriority = document.querySelector('input[name="priority"]:checked').value;
+        let newDue = format(dueInput.value, "MMM d, yyyy");
 
-    let newTodo = todo.createTodo(newTitle, newDescription, newPriority, newDue, 'none');
-    list.addTodo(newTodo);
-    storage.saveList(list.getList());
+        let newTodo = todo.createTodo(newTitle, newDescription, newPriority, newDue, 'none');
+        list.addTodo(newTodo);
+        storage.saveList(list.getList());
 
-    dialog.close();
+        dialog.close();
 
-    titleInput.value = '';
-    descriptionInput.value = '';
-    dueInput.value = '';
+        titleInput.value = '';
+        descriptionInput.value = '';
+        dueInput.value = '';
 
-    display.renderList(list.getList());
+        display.renderList(list.getList());
+        // Alert user if there is no title/desc input
+    } else {
+        if(titleInput.value.trim() == ''){
+            console.log('title');
+            titleInput.style.outline = '2px solid red';
+        };
+        if(descriptionInput.value.trim() == ''){
+            console.log('desc');
+            descriptionInput.style.outline = '2px solid red';
+        };
+    }
+});
+
+// Correct the red outlines if the users fixes their input
+titleInput.addEventListener('input', () => {
+    if(titleInput.value.trim() !== ''){
+        titleInput.style.outline = '1px solid black';
+    };
+})
+
+descriptionInput.addEventListener('input', () => {
+    if(descriptionInput.value.trim() !== ''){
+        descriptionInput.style.outline = '1px solid black';
+    }
 })
 
 // Add functionality to new project button
