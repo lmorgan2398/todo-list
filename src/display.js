@@ -36,7 +36,7 @@ const renderTodo = (parent, todo) => {
 
     let dueDate = document.createElement('p');
     dueDate.classList.add('due-date');
-    dueDate.textContent = `Due ${todo.due}`;
+    dueDate.textContent = `Due ${format(todo.due, 'MMM dd, yyyy')}`;
     headerText.appendChild(dueDate);
 
     let toggleInfo = document.createElement('button');
@@ -55,7 +55,7 @@ const renderTodo = (parent, todo) => {
 
     let todoCreationDate = document.createElement('p');
     todoCreationDate.classList.add('creation-date');
-    todoCreationDate.textContent = `Created on ${todo.created}`;
+    todoCreationDate.textContent = `Created on ${format(todo.created, 'MMM dd, yyyy')}`;
     todoInfo.appendChild(todoCreationDate);
 
     let deleteButton = document.createElement('button');

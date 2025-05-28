@@ -185,6 +185,8 @@ body {
 
 .todo-title {
     font-size: 1.3rem;
+    text-wrap: wrap;
+    overflow: none;
 }
 
 .todo-info {

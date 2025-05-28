@@ -3,10 +3,10 @@ import * as list from "./list.js";
 import * as storage from "./storage.js";
 import * as todo from "./todo.js";
 import * as projects from "./projects.js";
-import { format } from "date-fns";
+import { format, parseISO } from "date-fns";
 import './styles.css';
 
-
+// Toggle info button
 document.addEventListener('click', (e) => {
     if(e.target.classList.contains('toggle-info')){
         let todoElement = e.target.closest('.todo');
@@ -36,7 +36,8 @@ saveNewTodoButton.addEventListener('click', () => {
         let newTitle = titleInput.value;
         let newDescription = descriptionInput.value;
         let newPriority = document.querySelector('input[name="priority"]:checked').value;
-        let newDue = format(dueInput.value, "MMM d, yyyy");
+        let newDue = new Date(dueInput.value);
+        console.log(newDue);
 
         let newTodo = todo.createTodo(newTitle, newDescription, newPriority, newDue, 'none');
         list.addTodo(newTodo);
@@ -115,7 +116,7 @@ document.addEventListener('click', (e) => {
         let todo = list.getTodo(index);
         todo.toggle();
         list.setTodo(index, todo);
-        storage.saveList(list.getList());
+        storage.saveList(list.getList(''));
         display.renderList(list.getList());
     }
 });
@@ -135,9 +136,9 @@ document.addEventListener('DOMContentLoaded', () => {
         list.setList(savedList);
     } else {
         // If not, create some todo templates
-        let newTodo = todo.createTodo('Brush Teeth', 'Circular motion, at least 2 minutes', 'red', 'May 25, 2025', 'none');
-        let newTodo2 = todo.createTodo('Make Bed', 'Sheets go under the decorative pillows', 'yellow', 'May 27, 2025', 'none');
-        let newTodo3 = todo.createTodo('Eat Breakfast', 'Anything is good, just get something in your belly', 'blue', 'May 25, 2025', 'none');
+        let newTodo = todo.createTodo('Create your first todo', 'Click the button atop this page', 'red', new Date(), 'none');
+        let newTodo2 = todo.createTodo('Create a project', 'Projects are like folders for your todos, button is atop this page', 'yellow', new Date(), 'none');
+        let newTodo3 = todo.createTodo('Complete a todo', 'Once you have completed a task, check the circle to the left to mark it as completed!', 'blue', new Date(), 'none');
         list.addTodo(newTodo);
         list.addTodo(newTodo2);
         list.addTodo(newTodo3);
