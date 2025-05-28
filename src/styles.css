@@ -66,13 +66,29 @@ body {
     padding-top: 10rem;
 }
 
-.projects-container {
+.projects-container,
+.presort-container,
+.presort-header-container,
+.projects-header-container {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-.project {
+.presort-header,
+.projects-header {
+    display: flex;
+    background-color: inherit;
+    margin: 0rem 1rem;
+    padding: .5rem 1rem .5rem .5rem;
+    border-bottom: 2px solid rgb(161, 161, 161);
+    justify-content: flex-start;
+    font-size: 1.5rem;
+    color: rgb(32, 32, 32);
+}
+
+.project,
+.presort-container > * {
     display: flex;
     background-color: inherit;
     margin: 0rem 1rem;
@@ -80,6 +96,13 @@ body {
     border-bottom: 2px solid lightgray;
     justify-content: flex-start;
     font-size: 1.3rem;
+    color: rgb(41, 41, 41);
+}
+
+.project:hover,
+.presort-container > *:hover {
+    cursor: grab;
+    background-color: rgb(199, 199, 199);
 }
 
 .todo-container {

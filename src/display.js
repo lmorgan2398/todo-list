@@ -98,6 +98,7 @@ const renderProjects = (projects) => {
     projects.forEach((project) => {
         let projectElement = document.createElement('button');
         projectElement.classList.add('project');
+        projectElement.dataset.sort = project;
         projectElement.textContent = project;
         projectList.appendChild(projectElement);
     })
