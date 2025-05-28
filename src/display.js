@@ -99,7 +99,23 @@ const renderProjects = (projects) => {
         projectElement.textContent = project;
         projectList.appendChild(projectElement);
     })
-
 }
 
-export { renderList, toggleInfo, renderProjects };
+const renderProjectsInput = (projects) => {
+    let projectsInput = document.querySelector('#assign-project');
+    while(projectsInput.firstChild){
+        projectsInput.removeChild(projectsInput.firstChild);
+    };
+    let noneOption = document.createElement('option');
+    noneOption.value = 'None';
+    noneOption.textContent = 'None';
+    projectsInput.appendChild(noneOption);
+    projects.forEach((project) => {
+        let projectOption = document.createElement('option');
+        projectOption.value = project;
+        projectOption.textContent = project;
+        projectsInput.appendChild(projectOption);
+    })
+}
+
+export { renderList, toggleInfo, renderProjects, renderProjectsInput };

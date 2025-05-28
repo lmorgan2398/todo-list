@@ -19,6 +19,7 @@ const newTodoButton = document.querySelector('.new-todo');
 const dialog = document.querySelector('dialog');
 
 newTodoButton.addEventListener('click', () => {
+    display.renderProjectsInput(projects.getProjects());
     dialog.showModal();
 })
 
