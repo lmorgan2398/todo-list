@@ -62,7 +62,6 @@ saveNewTodoButton.addEventListener('click', () => {
     }
 });
 
-// Correct the red outlines if the users fixes their input
 titleInput.addEventListener('input', () => {
     if(titleInput.value.trim() !== ''){
         titleInput.style.outline = '1px solid black';
