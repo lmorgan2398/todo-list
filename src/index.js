@@ -3,7 +3,7 @@ import * as list from "./list.js";
 import * as storage from "./storage.js";
 import * as todo from "./todo.js";
 import * as projects from "./projects.js";
-import { format, parseISO } from "date-fns";
+import { format, parse } from "date-fns";
 import './styles.css';
 
 // Toggle info button
@@ -13,6 +13,15 @@ document.addEventListener('click', (e) => {
         display.toggleInfo(todoElement);
     }
 });
+
+// Button to sort and display selected todos
+let sort;
+document.addEventListener('click', (e) => {
+    if(e.target.classList.contains('sort')){
+        sort = e.target.dataset.sort;
+        display.renderList(list.sortList(sort));
+    }
+})
 
 // Declare querySelectors, add functionality to newTodo buttons
 const newTodoButton = document.querySelector('.new-todo');
@@ -36,8 +45,7 @@ saveNewTodoButton.addEventListener('click', () => {
         let newTitle = titleInput.value;
         let newDescription = descriptionInput.value;
         let newPriority = document.querySelector('input[name="priority"]:checked').value;
-        let newDue = new Date(dueInput.value);
-        console.log(newDue);
+        let newDue = parse(dueInput.value, 'yyyy-MM-dd', new Date());
 
         let newTodo = todo.createTodo(newTitle, newDescription, newPriority, newDue, 'none');
         list.addTodo(newTodo);
@@ -49,7 +57,7 @@ saveNewTodoButton.addEventListener('click', () => {
         descriptionInput.value = '';
         dueInput.value = '';
 
-        display.renderList(list.getList());
+        display.renderList(list.sortList(sort));
         // Alert user if there is no title/desc input
     } else {
         if(titleInput.value.trim() == ''){
@@ -104,7 +112,7 @@ document.addEventListener('click', (e) => {
         let id = todoElement.dataset.id;
         list.removeTodoById(id);
         storage.saveList(list.getList());
-        display.renderList(list.getList());
+        display.renderList(list.sortList(sort));
     }
 })
 
@@ -117,7 +125,7 @@ document.addEventListener('click', (e) => {
         todo.toggle();
         list.setTodoById(id, todo);
         storage.saveList(list.getList(''));
-        display.renderList(list.getList());
+        display.renderList(list.sortList(sort));
     }
 });
 
@@ -145,6 +153,6 @@ document.addEventListener('DOMContentLoaded', () => {
         storage.saveList(list.getList());
     }
 
-    display.renderList(list.getList());
+    display.renderList(list.sortList(sort));
 })
 

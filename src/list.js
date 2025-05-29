@@ -4,7 +4,7 @@ let ls = [];
 
 const getList = () => ls;
 
-const sortList = (sort) => {
+const sortList = (sort='all') => {
     let lsSorted = [];
     let today = startOfDay(new Date());
     if(sort == 'all'){
