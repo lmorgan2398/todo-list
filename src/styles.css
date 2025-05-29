@@ -282,12 +282,13 @@ body {
     background-color: rgb(240, 240, 240);
     cursor: grab;
     color: gray;
+    content: '';
 }
 
 #todo-completed:hover:before {
     border: 2px solid rgb(28, 172, 28);
     background-color: rgb(74, 223, 74);
-    content: '';
+    content: '✓';
     font-size: 1.4rem;
     display: flex;
     align-items: center;
