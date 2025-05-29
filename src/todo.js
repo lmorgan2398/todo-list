@@ -3,6 +3,7 @@ import { format } from "date-fns";
 const createTodo = function(title, description, priority, due, project){
     let currentDate = new Date();
     return {
+        id: crypto.randomUUID(),
         title: title,
         description: description,
         priority: priority,

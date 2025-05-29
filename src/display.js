@@ -75,13 +75,13 @@ const renderList = (list) => {
     while(completed.firstChild){
         completed.removeChild(completed.firstChild);
     }
-    list.forEach((todo, index) => {
+    list.forEach((todo) => {
         if(todo.completion == 'active'){
             let todoElement = renderTodo(active, todo);
-            todoElement.dataset.index = index;
+            todoElement.dataset.id = todo.id;
         } else if(todo.completion == 'completed'){
             let todoElement = renderTodo(completed, todo);
-            todoElement.dataset.index = index;
+            todoElement.dataset.id = todo.id;
         }
     })
 }

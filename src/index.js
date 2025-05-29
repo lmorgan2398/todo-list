@@ -101,8 +101,8 @@ projectButton.addEventListener('click', () => {
 document.addEventListener('click', (e) => {
     if(e.target.classList.contains('delete')){
         let todoElement = e.target.closest('.todo');
-        let index = todoElement.dataset.index;
-        list.removeTodo(index);
+        let id = todoElement.dataset.id;
+        list.removeTodoById(id);
         storage.saveList(list.getList());
         display.renderList(list.getList());
     }
@@ -112,10 +112,10 @@ document.addEventListener('click', (e) => {
 document.addEventListener('click', (e) => {
     if(e.target.id == 'todo-completed'){
         let todoElement = e.target.closest('.todo');
-        let index = todoElement.dataset.index;
-        let todo = list.getTodo(index);
+        let id = todoElement.dataset.id;
+        let todo = list.getTodoById(id);
         todo.toggle();
-        list.setTodo(index, todo);
+        list.setTodoById(id, todo);
         storage.saveList(list.getList(''));
         display.renderList(list.getList());
     }
