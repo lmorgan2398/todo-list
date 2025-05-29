@@ -1,6 +1,42 @@
+import { isBefore, isThisMonth, isThisWeek, isToday, startOfDay } from "date-fns";
+
 let ls = [];
 
 const getList = () => ls;
+
+const sortList = (sort) => {
+    let lsSorted = [];
+    let today = startOfDay(new Date());
+    if(sort == 'all'){
+        lsSorted = ls;
+    } else if(sort == 'today') {
+        ls.forEach((todo) => {
+            if(isToday(todo.due)){
+                lsSorted.push(todo);
+            }
+        })
+    } else if(sort == 'thisWeek'){
+        ls.forEach((todo) => {
+            if(isThisWeek(todo.due)){
+                lsSorted.push(todo);
+            }
+        })
+    } else if(sort == 'thisMonth'){
+        ls.forEach((todo) => {
+            if(isThisMonth(todo.due)){
+                lsSorted.push(todo);
+            }
+        })
+    } else if(sort == 'overdue'){
+        ls.forEach((todo) => {
+            let due = startOfDay(todo.due);
+            if(isBefore(due, today)){
+                lsSorted.push(todo);
+            }
+        })
+    }
+    return lsSorted;
+}
 
 const setList = (array) => ls = array;
 
@@ -29,4 +65,4 @@ const removeTodoById = (id) => {
     };
 };
 
-export { getList, setList, getTodoById, setTodoById, addTodo, removeTodoById };
+export { getList, sortList, setList, getTodoById, setTodoById, addTodo, removeTodoById };
