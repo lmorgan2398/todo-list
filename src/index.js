@@ -39,6 +39,7 @@ const saveNewTodoButton = document.querySelector('dialog form button');
 const titleInput = document.querySelector('dialog form #title');
 const descriptionInput = document.querySelector('dialog form #description');
 const dueInput = document.querySelector('dialog form #due');
+const projectInput = document.querySelector('dialog #assign-project');
 
 saveNewTodoButton.addEventListener('click', () => {
     if(titleInput.value.trim() !== '' && descriptionInput.value.trim() !== ''){
@@ -46,8 +47,9 @@ saveNewTodoButton.addEventListener('click', () => {
         let newDescription = descriptionInput.value;
         let newPriority = document.querySelector('input[name="priority"]:checked').value;
         let newDue = parse(dueInput.value, 'yyyy-MM-dd', new Date());
+        let newProject = projectInput.value;
 
-        let newTodo = todo.createTodo(newTitle, newDescription, newPriority, newDue, 'none');
+        let newTodo = todo.createTodo(newTitle, newDescription, newPriority, newDue, newProject);
         list.addTodo(newTodo);
         storage.saveList(list.getList());
 
@@ -153,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         storage.saveList(list.getList());
     }
 
+    console.log(list.getList());
     display.renderList(list.sortList(sort));
 })
 

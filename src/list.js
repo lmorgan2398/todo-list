@@ -34,6 +34,12 @@ const sortList = (sort='all') => {
                 lsSorted.push(todo);
             }
         })
+    } else {
+        ls.forEach((todo) => {
+            if(sort == todo.project){
+                lsSorted.push(todo);
+            }
+        })
     }
     return lsSorted;
 }
