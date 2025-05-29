@@ -98,8 +98,7 @@ projectButton.addEventListener('click', () => {
     let newName = projectNameInput.value;
 
     projects.addProject(newName);
-    console.log(projects.getProjects());
-    console.log(projects.getProject(newName));
+    storage.saveProjects(projects.getProjects());
     display.renderProjects(projects.getProjects());
 
     projectDialog.close();
@@ -140,6 +139,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // First try to load a saved list
     const savedList = storage.loadList();
+    const savedProjects = storage.loadProjects();
 
     if(savedList && savedList.length > 0){
         // If it exists and contains a list, load it
@@ -155,7 +155,11 @@ document.addEventListener('DOMContentLoaded', () => {
         storage.saveList(list.getList());
     }
 
-    console.log(list.getList());
+    if(savedProjects && savedProjects.length > 0){
+        projects.setProjects(savedProjects);
+    }
+
     display.renderList(list.sortList(sort));
+    display.renderProjects(projects.getProjects());
 })
 

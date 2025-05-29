@@ -1,18 +1,18 @@
 import * as todo from "./todo.js";
 
-const packageList = (ls) => JSON.stringify(ls);
+const packageArray = (arr) => JSON.stringify(arr);
 
-const unpackageList = (ls) => JSON.parse(ls);
+const unpackageArray = (arr) => JSON.parse(arr);
 
 const saveList = (ls) => {
-    let listToSave = packageList(ls);
+    let listToSave = packageArray(ls);
     localStorage.setItem('todo-list', listToSave);
 }
 
 const loadList = () => {
     if(localStorage.getItem('todo-list')){
         let listToUnpackage = localStorage.getItem('todo-list');
-        let listToRehydrate = unpackageList(listToUnpackage);
+        let listToRehydrate = unpackageArray(listToUnpackage);
         const listToLoad = listToRehydrate.map(data => {
             let rehydrated = todo.createTodo(
                 data.title,
@@ -33,5 +33,18 @@ const loadList = () => {
     }
 }
 
+const saveProjects = (prjs) => {
+    let projectsToSave = packageArray(prjs);
+    localStorage.setItem('projects-list', projectsToSave);
+}
 
-export { saveList, loadList };
+const loadProjects = () => {
+    if(localStorage.getItem('projects-list')){
+        let projectsToUnpackage = localStorage.getItem('projects-list');
+        let projectsList = unpackageArray(projectsToUnpackage);
+        return projectsList;
+    }
+}
+
+
+export { saveList, loadList, saveProjects, loadProjects };

@@ -144,7 +144,7 @@ body {
 }
 
 .completed-todo .todo-header {
-    background-color: rgb(216, 216, 216);
+    background-color: rgb(202, 202, 202);
     border: 2px solid rgb(121, 121, 121);  
 }
 
@@ -199,7 +199,7 @@ body {
 }
 
 .completed-todo .todo-info {
-    background-color: rgb(212, 212, 212);
+    background-color: rgb(228, 228, 228);
     border: 2px solid rgb(126, 126, 126);
     border-top: none; 
 }
@@ -255,14 +255,14 @@ body {
 }
 
 .completed-todo #todo-completed:before {
+    border: 2px solid rgb(28, 172, 28);
+    background-color: rgb(74, 223, 74);
     content: '✓';
     font-size: 1.4rem;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: gray;
-    border: 2px solid rgb(167, 167, 167);
-    background-color: rgb(207, 207, 207);
+    color: green;
 }
 
 .blue #todo-completed:before {
@@ -287,7 +287,7 @@ body {
 #todo-completed:hover:before {
     border: 2px solid rgb(28, 172, 28);
     background-color: rgb(74, 223, 74);
-    content: '✓';
+    content: '';
     font-size: 1.4rem;
     display: flex;
     align-items: center;
