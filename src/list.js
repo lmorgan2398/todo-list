@@ -1,4 +1,4 @@
-import { isBefore, isThisMonth, isThisWeek, isToday, startOfDay } from "date-fns";
+import { isBefore, isThisMonth, isThisWeek, isToday, lastDayOfDecade, startOfDay } from "date-fns";
 
 let ls = [];
 
@@ -44,6 +44,43 @@ const sortList = (sort='all') => {
     return lsSorted;
 }
 
+const orderList = (order='creationOld') => {
+    if(order == 'creation-old'){
+        ls.sort((a, b) => {
+            a.creation - b.creation;
+        })
+    } else if(order == 'creationNew'){
+        ls.sort((a, b) => {
+            b.creation - a.creation;
+        })
+    } else if(order == 'dueOld'){
+        ls.sort((a, b) => {
+            a.due - b.due;
+        })
+    } else if(order == 'dueNew'){
+        ls.sort((a, b) => {
+            b.due - a.due;
+        })
+    } else if(order == 'priority'){
+        let lsPriority = [];
+        let red = ls.filter((todo) => todo.priority == 'red');
+        red.forEach((todo) => lsPriority.push(todo));
+        let yellow = ls.filter((todo) => todo.priority == 'yellow');
+        yellow.forEach((todo) => lsPriority.push(todo));
+        let blue = ls.filter((todo) => todo.priority == 'blue');
+        blue.forEach((todo) => lsPriority.push(todo));
+        setList(lsPriority);
+    } else if(order == 'nameAsc'){
+        ls.sort((a, b) => {
+            a.title - b.title;
+        })
+    } else if(order == 'nameAsc'){
+        ls.sort((a, b) => {
+            b.title - a.title;s
+        })
+    }
+}
+
 const setList = (array) => ls = array;
 
 const findIndexById = (id) => ls.findIndex(todo => todo.id == id);
@@ -71,4 +108,4 @@ const removeTodoById = (id) => {
     };
 };
 
-export { getList, sortList, setList, getTodoById, setTodoById, addTodo, removeTodoById };
+export { getList, sortList, orderList, setList, getTodoById, setTodoById, addTodo, removeTodoById };
