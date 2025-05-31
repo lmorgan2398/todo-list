@@ -6,6 +6,17 @@ import * as projects from "./projects.js";
 import { format, parse } from "date-fns";
 import './styles.css';
 
+// Toggle order button
+let order;
+let orderButton = document.querySelector('#order');
+orderButton.addEventListener('input', ()=> {
+    console.log('working');
+    order = orderButton.value;
+    console.log(order);
+    list.orderList(order);
+    display.renderList(list.sortList(sort));
+})
+
 // Toggle info button
 document.addEventListener('click', (e) => {
     if(e.target.classList.contains('toggle-info')){
@@ -51,6 +62,7 @@ saveNewTodoButton.addEventListener('click', () => {
 
         let newTodo = todo.createTodo(newTitle, newDescription, newPriority, newDue, newProject);
         list.addTodo(newTodo);
+        list.orderList(order);
         storage.saveList(list.getList());
 
         dialog.close();
@@ -112,6 +124,7 @@ document.addEventListener('click', (e) => {
         let todoElement = e.target.closest('.todo');
         let id = todoElement.dataset.id;
         list.removeTodoById(id);
+        list.orderList(order);
         storage.saveList(list.getList());
         display.renderList(list.sortList(sort));
     }
@@ -159,6 +172,7 @@ document.addEventListener('DOMContentLoaded', () => {
         projects.setProjects(savedProjects);
     }
 
+    list.orderList(order);
     display.renderList(list.sortList(sort));
     display.renderProjects(projects.getProjects());
 })

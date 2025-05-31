@@ -18,10 +18,10 @@ const loadList = () => {
                 data.title,
                 data.description,
                 data.priority,
-                data.due,
+                new Date(data.due),
                 data.project,
             )
-            rehydrated.created = data.created;
+            rehydrated.created = new Date(data.created);
             rehydrated.completion = data.completion;
 
             return rehydrated;

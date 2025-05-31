@@ -44,22 +44,27 @@ const sortList = (sort='all') => {
     return lsSorted;
 }
 
-const orderList = (order='creationOld') => {
-    if(order == 'creation-old'){
+const orderList = (order='dueNew') => {
+    if(order == 'creationOld'){
         ls.sort((a, b) => {
-            a.creation - b.creation;
+            console.log('creationOld')
+            console.log(a.created);
+            console.log(b.created);
+            console.log(a.created - b.created);
+            return a.created - b.created;
         })
     } else if(order == 'creationNew'){
         ls.sort((a, b) => {
-            b.creation - a.creation;
-        })
-    } else if(order == 'dueOld'){
-        ls.sort((a, b) => {
-            a.due - b.due;
+            console.log('creationNew');
+            return b.created - a.created;
         })
     } else if(order == 'dueNew'){
         ls.sort((a, b) => {
-            b.due - a.due;
+            return a.due - b.due;
+        })
+    } else if(order == 'dueOld'){
+        ls.sort((a, b) => {
+            return b.due - a.due;
         })
     } else if(order == 'priority'){
         let lsPriority = [];
@@ -72,11 +77,11 @@ const orderList = (order='creationOld') => {
         setList(lsPriority);
     } else if(order == 'nameAsc'){
         ls.sort((a, b) => {
-            a.title - b.title;
+             return a.title.localeCompare(b.title);
         })
-    } else if(order == 'nameAsc'){
+    } else if(order == 'nameDesc'){
         ls.sort((a, b) => {
-            b.title - a.title;s
+            return b.title.localeCompare(a.title);
         })
     }
 }
