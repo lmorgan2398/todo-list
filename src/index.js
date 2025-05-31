@@ -178,3 +178,17 @@ document.addEventListener('DOMContentLoaded', () => {
     display.renderProjects(projects.getProjects());
 })
 
+document.addEventListener('keydown', (e) => {
+    if(e.key === 'Escape'){
+        if(dialog.open){
+            titleInput.value = '';
+            descriptionInput.value = '';
+            dueInput.value = '';
+            dialog.close();
+        }
+        if(projectDialog.open){
+            projectNameInput.value = '';
+            projectDialog.close();
+        }
+    }
+})
