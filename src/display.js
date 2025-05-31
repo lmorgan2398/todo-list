@@ -53,6 +53,11 @@ const renderTodo = (parent, todo) => {
     todoDescription.textContent = todo.description;
     todoInfo.appendChild(todoDescription);
 
+    let todoProject = document.createElement('p');
+    todoProject.classList.add('todo-project');
+    todoProject.textContent = `Part of "${todo.project}"`;
+    todoInfo.appendChild(todoProject);
+
     let todoCreationDate = document.createElement('p');
     todoCreationDate.classList.add('creation-date');
     todoCreationDate.textContent = `Created on ${format(todo.created, 'MMM dd, yyyy')}`;

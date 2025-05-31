@@ -26,7 +26,7 @@ body {
     background-color: whitesmoke;
     display: grid;
     grid-template-columns: 12rem 1fr;
-    grid-template-rows: 8rem 1fr;
+    grid-template-rows: min-content 1fr;
 }
 
 .header-container {
@@ -37,6 +37,8 @@ body {
     justify-content: space-between;
     border-bottom: 3px solid black;
     margin: 0rem 2.5rem;
+    flex-wrap: wrap;
+    padding: 1rem 0rem;
 }
 
 .sort-info {

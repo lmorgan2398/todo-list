@@ -160,9 +160,9 @@ document.addEventListener('DOMContentLoaded', () => {
         list.setList(savedList);
     } else {
         // If not, create some todo templates
-        let newTodo = todo.createTodo('Create your first todo', 'Click the button atop this page', 'red', new Date(), 'none');
-        let newTodo2 = todo.createTodo('Create a project', 'Projects are like folders for your todos, button is atop this page', 'yellow', new Date(), 'none');
-        let newTodo3 = todo.createTodo('Complete a todo', 'Once you have completed a task, check the circle to the left to mark it as completed!', 'blue', new Date(), 'none');
+        let newTodo = todo.createTodo('Create your first todo', 'Click the button atop this page', 'red', new Date(), 'None');
+        let newTodo2 = todo.createTodo('Create a project', 'Projects are like folders for your todos, button is atop this page', 'yellow', new Date(), 'None');
+        let newTodo3 = todo.createTodo('Complete a todo', 'Once you have completed a task, check the circle to the left to mark it as completed!', 'blue', new Date(), 'None');
         list.addTodo(newTodo);
         list.addTodo(newTodo2);
         list.addTodo(newTodo3);
