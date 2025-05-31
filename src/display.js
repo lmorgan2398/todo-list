@@ -131,4 +131,21 @@ const renderDateInput = (input) => {
     input.value = format(today, 'yyyy-MM-dd');
 }
 
-export { renderList, toggleInfo, renderProjects, renderProjectsInput, renderDateInput };
+const renderCurrentSort = (sort) => {
+    let sortDisplay = document.querySelector('.current-sort');
+    if(sort == 'all'){
+        sortDisplay.textContent = 'All Tasks';
+    } else if(sort == 'today'){
+        sortDisplay.textContent = 'Today';
+    } else if(sort == 'thisWeek'){
+        sortDisplay.textContent = 'This Week';
+    } else if(sort == 'thisMonth'){
+        sortDisplay.textContent = 'This Month';
+    } else if(sort == 'overdue'){
+        sortDisplay.textContent = 'Overdue';
+    } else {
+        sortDisplay.textContent = sort;
+    }
+}
+
+export { renderList, toggleInfo, renderProjects, renderProjectsInput, renderDateInput, renderCurrentSort };

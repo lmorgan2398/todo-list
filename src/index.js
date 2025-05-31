@@ -30,6 +30,7 @@ let sort;
 document.addEventListener('click', (e) => {
     if(e.target.classList.contains('sort')){
         sort = e.target.dataset.sort;
+        display.renderCurrentSort(sort);
         display.renderList(list.sortList(sort));
     }
 })

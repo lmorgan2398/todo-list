@@ -66,6 +66,10 @@ body {
     border-radius: 4px;
 }
 
+#order:hover {
+    cursor: grab;
+}
+
 .creation-tools {
     display: flex;
     align-items: center;
