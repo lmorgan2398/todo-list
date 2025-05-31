@@ -26,7 +26,7 @@ body {
     background-color: whitesmoke;
     display: grid;
     grid-template-columns: 12rem 1fr;
-    grid-template-rows: 6rem 1fr;
+    grid-template-rows: 8rem 1fr;
 }
 
 .header-container {
@@ -34,7 +34,43 @@ body {
     grid-row: 1 / 2;
     background-color: whitesmoke;
     display: flex;
+    justify-content: space-between;
+    border-bottom: 3px solid black;
+    margin: 0rem 2.5rem;
+}
+
+.sort-info {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    margin: 1rem 0rem;
+    align-items: center;
+}
+
+.current-sort {
+    font-size: 3.5rem;
+}
+
+.order {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: .25rem;
+}
+
+#order {
+    border: 2px solid black;
+    font-size: 1rem;
+    font-weight: bold;
+    height: min-content;
+    padding: .2rem .4rem;
+    border-radius: 4px;
+}
+
+.creation-tools {
+    display: flex;
+    align-items: center;
     justify-content: flex-end;
+    gap: 2rem;
 }
 
 .new-todo,
@@ -44,7 +80,7 @@ body {
     color: whitesmoke;
     background-color: rgb(41, 41, 41);
     border-radius: 6px;
-    margin: 1.5rem 2rem;
+    margin: 1.5rem 0rem, 1.5rem 2rem;
     margin-left: 0;
     font-weight: bold;
 }

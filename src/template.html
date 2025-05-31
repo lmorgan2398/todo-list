@@ -7,17 +7,24 @@
 </head>
 <body>
 <div class="header-container">
-    <select name="order" id="order" class="order">
-        <option value="dueNew">Due Date (newest to oldest)</option>
-        <option value="dueOld">Due Date (oldest to newest)</option>
-        <option value="creationNew">Created Date (newest to oldest)</option>
-        <option value="creationOld">Created Date (oldest to newest)</option>
-        <option value="priority">Priority</option>
-        <option value="nameAsc">Name (ascending)</option>
-        <option value="nameDesc">Name (descending)</option>
-    </select>
-    <button class="new-todo">New To-Do</button>
-    <button class="new-project">New Project</button>
+    <div class="sort-info">
+        <h2 class="current-sort">All Tasks</h2>
+        <label for="order" class="order">Ordered By:
+            <select name="order" id="order" class="order">
+                <option value="dueNew">Due Date (newest to oldest)</option>
+                <option value="dueOld">Due Date (oldest to newest)</option>
+                <option value="creationNew">Created Date (newest to oldest)</option>
+                <option value="creationOld">Created Date (oldest to newest)</option>
+                <option value="priority">Priority</option>
+                <option value="nameAsc">Name (ascending)</option>
+                <option value="nameDesc">Name (descending)</option>
+            </select>
+        </label>
+    </div>
+    <div class="creation-tools">
+        <button class="new-todo">New To-Do</button>
+        <button class="new-project">New Project</button>
+    </div>
 </div>
 <div class="sidebar-container">
     <div class="presort-header-container">
