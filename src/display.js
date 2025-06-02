@@ -63,6 +63,11 @@ const renderTodo = (parent, todo) => {
     todoCreationDate.textContent = `Created on ${format(todo.created, 'MMM dd, yyyy')}`;
     todoInfo.appendChild(todoCreationDate);
 
+    let editButton = document.createElement('button');
+    editButton.classList.add('edit');
+    editButton.textContent = '\u270E';
+    todoInfo.appendChild(editButton); 
+
     let deleteButton = document.createElement('button');
     deleteButton.classList.add('delete');
     deleteButton.textContent = '\u2716';
@@ -157,4 +162,9 @@ const renderCurrentSort = (sort) => {
     }
 }
 
-export { renderList, toggleInfo, renderProjects, renderProjectsInput, renderDateInput, renderCurrentSort };
+const clearPriotiyInput = () => {
+    let priorityInputs = document.querySelectorAll('input[type="radio"]');
+    priorityInputs.forEach((input) => input.checked = false)
+}
+
+export { renderList, toggleInfo, renderProjects, renderProjectsInput, renderDateInput, renderCurrentSort, clearPriotiyInput };

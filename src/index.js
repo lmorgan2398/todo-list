@@ -44,6 +44,9 @@ newTodoButton.addEventListener('click', () => {
     display.renderDateInput(dueInput);
     titleInput.style.outline = '1px solid black';
     descriptionInput.style.outline = '1px solid black';
+    dialogHeader.textContent = 'New Todo';
+    saveNewTodoButton.dataset.mode = 'new';
+    saveNewTodoButton.dataset.id = 'none';
     dialog.showModal();
 })
 
@@ -55,24 +58,53 @@ const projectInput = document.querySelector('dialog #assign-project');
 
 saveNewTodoButton.addEventListener('click', () => {
     if(titleInput.value.trim() !== '' && descriptionInput.value.trim() !== ''){
-        let newTitle = titleInput.value;
-        let newDescription = descriptionInput.value;
-        let newPriority = document.querySelector('input[name="priority"]:checked').value;
-        let newDue = parse(dueInput.value, 'yyyy-MM-dd', new Date());
-        let newProject = projectInput.value;
+        const mode = saveNewTodoButton.dataset.mode;
+        if(mode == 'new'){
+            let newTitle = titleInput.value;
+            let newDescription = descriptionInput.value;
+            let newPriority = document.querySelector('input[name="priority"]:checked').value;
+            let newDue = parse(dueInput.value, 'yyyy-MM-dd', new Date());
+            let newProject = projectInput.value;
 
-        let newTodo = todo.createTodo(newTitle, newDescription, newPriority, newDue, newProject);
-        list.addTodo(newTodo);
-        list.orderList(order);
-        storage.saveList(list.getList());
+            let newTodo = todo.createTodo(newTitle, newDescription, newPriority, newDue, newProject);
+            list.addTodo(newTodo);
+            list.orderList(order);
+            storage.saveList(list.getList());
 
-        dialog.close();
+            dialog.close();
 
-        titleInput.value = '';
-        descriptionInput.value = '';
-        dueInput.value = '';
+            titleInput.value = '';
+            descriptionInput.value = '';
+            dueInput.value = '';
 
-        display.renderList(list.sortList(sort));
+            display.renderList(list.sortList(sort));
+        } else if(mode == 'edit'){
+            let currentId = saveNewTodoButton.dataset.id;
+            let currentTodo = list.getTodoById(currentId);
+
+            let editedTitle = titleInput.value;
+            let editedDescription = descriptionInput.value;
+            let editedPriority = document.querySelector('input[name="priority"]:checked').value;
+            let editedDue = parse(dueInput.value, 'yyyy-MM-dd', new Date());
+            let editedProject = projectInput.value;
+
+            let editedTodo = todo.createTodo(editedTitle, editedDescription, editedPriority, editedDue, editedProject);
+            editedTodo.completion = currentTodo.completion;
+            editedTodo.created = currentTodo.created;
+            editedTodo.id = currentTodo.id;
+
+            list.setTodoById(currentId, editedTodo);
+            list.orderList(order);
+            storage.saveList(list.getList());
+
+            dialog.close();
+
+            titleInput.value = '';
+            descriptionInput.value = '';
+            dueInput.value = '';
+
+            display.renderList(list.getList());
+        }
         // Alert user if there is no title/desc input
     } else {
         if(titleInput.value.trim() == ''){
@@ -207,5 +239,34 @@ document.addEventListener('click', (e) => {
         projects.removeProject(currentProjectName);
         storage.saveProjects(projects.getProjects());
         display.renderProjects(projects.getProjects());
+    }
+})
+
+// Create edit todo button
+let dialogHeader = document.querySelector('dialog h2');
+document.addEventListener('click', (e) => {
+    if(e.target.classList.contains('edit')){
+        saveNewTodoButton.dataset.mode = 'edit';
+        let currentTodoElement = e.target.closest('.todo');
+        let currentTodoId = currentTodoElement.dataset.id;
+        saveNewTodoButton.dataset.id = currentTodoId;
+        let currentTodo = list.getTodoById(currentTodoId);
+        
+        dialogHeader.textContent = 'Edit Todo';
+
+        titleInput.value = currentTodo.title;
+        descriptionInput.value = currentTodo.description;
+        display.renderProjectsInput(projects.getProjects());
+        projectInput.value = currentTodo.project;
+        dueInput.value = format(currentTodo.due, 'yyyy-MM-dd')
+        display.clearPriotiyInput();
+        let priorityInputs = document.querySelectorAll('input[type="radio"]');
+        priorityInputs.forEach((input) => {
+            if(input.value == currentTodo.priority){
+                input.checked = true;
+            }
+        });
+
+        dialog.showModal();
     }
 })

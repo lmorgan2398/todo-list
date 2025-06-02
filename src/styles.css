@@ -574,12 +574,27 @@ dialog::backdrop {
     right: .15rem;
     bottom: .25rem;
     background-color: inherit;
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: inherit;
 }
 
 .delete:hover {
-    cursor: grab;
+    cursor: pointer;
+    color: gray;
+}
+
+.edit {
+    position: absolute;
+    right: 1.75rem;
+    bottom: .25rem;
+    background-color: inherit;
+    font-size: 1.2rem;
+    color: inherit;
+}
+
+.edit:hover {
+    cursor: pointer;
+    color: gray;
 }
 
 .save-button {
