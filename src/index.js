@@ -45,6 +45,9 @@ newTodoButton.addEventListener('click', () => {
     titleInput.style.outline = '1px solid black';
     descriptionInput.style.outline = '1px solid black';
     dialogHeader.textContent = 'New Todo';
+    display.clearPriotiyInput();
+    let bluePriority = document.querySelector('#blue');
+    bluePriority.checked = true;
     saveNewTodoButton.dataset.mode = 'new';
     saveNewTodoButton.dataset.id = 'none';
     dialog.showModal();
@@ -219,6 +222,22 @@ document.addEventListener('DOMContentLoaded', () => {
 // Create event listener to close dialogs with esc
 document.addEventListener('keydown', (e) => {
     if(e.key === 'Escape'){
+        if(dialog.open){
+            titleInput.value = '';
+            descriptionInput.value = '';
+            dueInput.value = '';
+            dialog.close();
+        }
+        if(projectDialog.open){
+            projectNameInput.value = '';
+            projectDialog.close();
+        }
+    }
+})
+
+// Create event listener to close dialogs via button
+document.addEventListener('click', (e) => {
+    if(e.target.classList.contains('close')){
         if(dialog.open){
             titleInput.value = '';
             descriptionInput.value = '';
