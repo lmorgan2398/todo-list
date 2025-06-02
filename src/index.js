@@ -183,6 +183,7 @@ document.addEventListener('DOMContentLoaded', () => {
     display.renderProjects(projects.getProjects());
 })
 
+// Create event listener to close dialogs with esc
 document.addEventListener('keydown', (e) => {
     if(e.key === 'Escape'){
         if(dialog.open){
@@ -195,5 +196,16 @@ document.addEventListener('keydown', (e) => {
             projectNameInput.value = '';
             projectDialog.close();
         }
+    }
+})
+
+// Create event listener to delete project buttons
+document.addEventListener('click', (e) => {
+    if(e.target.classList.contains('project-delete')){
+        let currentProjectElement = e.target.closest('.project');
+        let currentProjectName = currentProjectElement.dataset.sort;
+        projects.removeProject(currentProjectName);
+        storage.saveProjects(projects.getProjects());
+        display.renderProjects(projects.getProjects());
     }
 })

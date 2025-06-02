@@ -110,6 +110,10 @@ const renderProjects = (projects) => {
         projectElement.classList.add('sort');
         projectElement.dataset.sort = project;
         projectElement.textContent = project;
+        let projectDeleteElement = document.createElement('button');
+        projectDeleteElement.classList.add('project-delete');
+        projectDeleteElement.textContent = '\u2716';
+        projectElement.appendChild(projectDeleteElement);
         projectList.appendChild(projectElement);
     })
 }
