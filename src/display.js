@@ -1,4 +1,4 @@
-import { format } from "date-fns";
+import { format, startOfDay } from "date-fns";
 
 const renderTodo = (parent, todo) => {
     let todoElementContainer = document.createElement('div');
@@ -141,7 +141,7 @@ const renderProjectsInput = (projects) => {
 }
 
 const renderDateInput = (input) => {
-    let today = new Date();
+    let today = startOfDay(new Date());
     input.value = format(today, 'yyyy-MM-dd');
 }
 

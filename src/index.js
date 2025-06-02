@@ -3,7 +3,7 @@ import * as list from "./list.js";
 import * as storage from "./storage.js";
 import * as todo from "./todo.js";
 import * as projects from "./projects.js";
-import { format, parse } from "date-fns";
+import { format, parse, startOfDay } from "date-fns";
 import './styles.css';
 
 // Toggle order button
@@ -197,9 +197,9 @@ document.addEventListener('DOMContentLoaded', () => {
         list.setList(savedList);
     } else {
         // If not, create some todo templates
-        let newTodo = todo.createTodo('Create your first todo', 'Click the button atop this page', 'red', new Date(), 'None');
-        let newTodo2 = todo.createTodo('Create a project', 'Projects are like folders for your todos, button is atop this page', 'yellow', new Date(), 'None');
-        let newTodo3 = todo.createTodo('Complete a todo', 'Once you have completed a task, check the circle to the left to mark it as completed!', 'blue', new Date(), 'None');
+        let newTodo = todo.createTodo('Create your first todo', 'Click the button atop this page', 'red', startOfDay(new Date()), 'None');
+        let newTodo2 = todo.createTodo('Create a project', 'Projects are like folders for your todos, button is atop this page', 'yellow', startOfDay(new Date()), 'None');
+        let newTodo3 = todo.createTodo('Complete a todo', 'Once you have completed a task, check the circle to the left to mark it as completed!', 'blue', startOfDay(new Date()), 'None');
         list.addTodo(newTodo);
         list.addTodo(newTodo2);
         list.addTodo(newTodo3);
@@ -211,6 +211,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     list.orderList(order);
+    console.log(list.getList());
     display.renderList(list.sortList(sort));
     display.renderProjects(projects.getProjects());
 })
