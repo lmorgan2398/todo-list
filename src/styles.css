@@ -608,3 +608,8 @@ dialog h2 {
     padding: .25rem .75rem;
     background-color: lightgray;
 }
+
+.project-button:hover {
+    background-color: rgb(223, 223, 223);
+    cursor: grab;
+}

@@ -102,21 +102,26 @@ descriptionInput.addEventListener('input', () => {
 const newProjectButton = document.querySelector('.new-project');
 const projectDialog = document.querySelector('.project-dialog');
 newProjectButton.addEventListener('click', () => {
+    projectNameInput.style.outline = '1px solid black';
     projectDialog.showModal();
 })
 
 const projectButton = document.querySelector('.project-button');
 const projectNameInput = document.querySelector('#project');
 projectButton.addEventListener('click', () => {
-    let newName = projectNameInput.value;
+    if(projectNameInput.value.trim() !== ''){
+        let newName = projectNameInput.value;
 
-    projects.addProject(newName);
-    storage.saveProjects(projects.getProjects());
-    display.renderProjects(projects.getProjects());
+        projects.addProject(newName);
+        storage.saveProjects(projects.getProjects());
+        display.renderProjects(projects.getProjects());
 
-    projectDialog.close();
+        projectDialog.close();
 
-    projectNameInput.value = '';
+        projectNameInput.value = '';
+    } else {
+        projectNameInput.style.outline = '2px solid red';
+    }
 })
 
 // Event listener for deleting a todo
