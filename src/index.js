@@ -240,6 +240,15 @@ document.addEventListener('click', (e) => {
         projects.removeProject(currentProjectName);
         storage.saveProjects(projects.getProjects());
         display.renderProjects(projects.getProjects());
+
+        let removeProjectList = list.getList();
+        removeProjectList.forEach((todo) => {
+            if(todo.project == currentProjectName){
+                todo.project = 'None';
+            }
+        });
+        storage.saveList(list.getList());
+        display.renderList(list.getList());
     }
 })
 
