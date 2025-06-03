@@ -1,685 +1,686 @@
 html,
 body {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    height: 100%;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100%;
 }
 
 html {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 * {
-    font-family: sans-serif;
-    margin: 0;
-    border: 0;
+  font-family: sans-serif;
+  margin: 0;
+  border: 0;
 }
 
 p,
 h3 {
-    margin: none;
+  margin: none;
 }
 
 body {
-    height: 100%;
-    background-color: whitesmoke;
-    display: grid;
-    grid-template-columns: 12rem 1fr;
-    grid-template-rows: min-content 1fr;
+  height: 100%;
+  background-color: whitesmoke;
+  display: grid;
+  grid-template-columns: 12rem 1fr;
+  grid-template-rows: min-content 1fr;
 }
 
 .header-container {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    background-color: whitesmoke;
-    display: flex;
-    justify-content: space-between;
-    border-bottom: 3px solid black;
-    margin: 0rem 2.5rem;
-    flex-wrap: wrap;
-    padding: 1rem 0rem;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  background-color: whitesmoke;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 3px solid black;
+  margin: 0rem 2.5rem;
+  flex-wrap: wrap;
+  padding: 1rem 0rem;
 }
 
 .sort-info {
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
-    margin: 1rem 0rem;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin: 1rem 0rem;
+  align-items: center;
 }
 
 .current-sort {
-    font-size: 3.5rem;
+  font-size: 3.5rem;
 }
 
 .order {
-    font-size: 1rem;
-    font-weight: bold;
-    margin-top: .25rem;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-top: 0.25rem;
 }
 
 #order {
-    border: 2px solid black;
-    font-size: 1rem;
-    font-weight: bold;
-    height: min-content;
-    padding: .2rem .4rem;
-    border-radius: 4px;
+  border: 2px solid black;
+  font-size: 1rem;
+  font-weight: bold;
+  height: min-content;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
 }
 
 #order:hover {
-    cursor: grab;
+  cursor: grab;
 }
 
 .creation-tools {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 2rem;
 }
 
 .new-todo,
 .new-project {
-    font-size: 1.5rem;
-    padding: .75rem 1.5rem;
-    color: whitesmoke;
-    background-color: rgb(41, 41, 41);
-    border-radius: 6px;
-    margin: 1.5rem 0rem, 1.5rem 2rem;
-    margin-left: 0;
-    font-weight: bold;
+  font-size: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  color: whitesmoke;
+  background-color: rgb(41, 41, 41);
+  border-radius: 6px;
+  margin:
+    1.5rem 0rem,
+    1.5rem 2rem;
+  margin-left: 0;
+  font-weight: bold;
 }
 
 .new-todo:hover,
 .new-project:hover {
-    cursor:grab;
-    background-color: gray;
+  cursor: grab;
+  background-color: gray;
 }
 
 .sidebar-container {
-    grid-column: 1 / 2;
-    grid-row: 1 / 3;
-    background-color: rgb(233, 233, 233);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  background-color: rgb(233, 233, 233);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .logo {
-    font-size: 2rem;
-    color: red;
-    font-weight: bold;
-    padding-top: 2rem;
+  font-size: 2rem;
+  color: red;
+  font-weight: bold;
+  padding-top: 2rem;
 }
 
 .green-span {
-    color: green;
+  color: green;
 }
 
 .yellow-span {
-    color: rgb(255, 230, 2);
+  color: rgb(255, 230, 2);
 }
 
 .blue-span {
-    color: blue;
+  color: blue;
 }
 
 .presort-header-container {
-    padding-top: 10rem;
+  padding-top: 10rem;
 }
 
 .projects-container,
 .presort-container,
 .presort-header-container,
 .projects-header-container {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .presort-header,
 .projects-header {
-    display: flex;
-    background-color: inherit;
-    margin: 0rem 1rem;
-    padding: .5rem 1rem .5rem .5rem;
-    border-bottom: 2px solid rgb(161, 161, 161);
-    justify-content: flex-start;
-    font-size: 1.5rem;
-    color: rgb(32, 32, 32);
+  display: flex;
+  background-color: inherit;
+  margin: 0rem 1rem;
+  padding: 0.5rem 1rem 0.5rem 0.5rem;
+  border-bottom: 2px solid rgb(161, 161, 161);
+  justify-content: flex-start;
+  font-size: 1.5rem;
+  color: rgb(32, 32, 32);
 }
 
 .project,
 .presort-container > * {
-    display: flex;
-    background-color: inherit;
-    margin: 0rem 1rem;
-    padding: .5rem 1rem;
-    border-bottom: 2px solid lightgray;
-    justify-content: flex-start;
-    font-size: 1.3rem;
-    color: rgb(41, 41, 41);
-    position: relative;
+  display: flex;
+  background-color: inherit;
+  margin: 0rem 1rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 2px solid lightgray;
+  justify-content: flex-start;
+  font-size: 1.3rem;
+  color: rgb(41, 41, 41);
+  position: relative;
 }
 
 .project:hover,
 .presort-container > *:hover {
-    cursor: grab;
-    background-color: rgb(199, 199, 199);
+  cursor: grab;
+  background-color: rgb(199, 199, 199);
 }
 
 .project-delete {
-    background-color: inherit;
-    position: absolute;
-    right: .2rem;
-    align-self: center;
-    font-size: 1rem;
+  background-color: inherit;
+  position: absolute;
+  right: 0.2rem;
+  align-self: center;
+  font-size: 1rem;
 }
 
 .project-delete:hover {
-    cursor: pointer;
-    color: whitesmoke;
+  cursor: pointer;
+  color: whitesmoke;
 }
 
 .todo-container {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
 
 .todo {
-    display: flex;
-    flex-direction: column;
-    width: 20rem;
-    border-radius: 10px;
-    color: rgb(0, 31, 0);
+  display: flex;
+  flex-direction: column;
+  width: 20rem;
+  border-radius: 10px;
+  color: rgb(0, 31, 0);
 }
 
 .completed-todo.todo {
-    box-shadow: 0px 0px 20px -2px rgb(150, 150, 150);
+  box-shadow: 0px 0px 20px -2px rgb(150, 150, 150);
 }
 
 .blue.todo {
-    box-shadow: 0px 0px 20px -2px rgb(132, 140, 158);
+  box-shadow: 0px 0px 20px -2px rgb(132, 140, 158);
 }
 
 .yellow.todo {
-    box-shadow: 0px 0px 20px -2px rgb(158, 154, 132);
+  box-shadow: 0px 0px 20px -2px rgb(158, 154, 132);
 }
 
 .red .todo {
-    box-shadow: 0px 0px 20px -2px rgb(158, 134, 132);
+  box-shadow: 0px 0px 20px -2px rgb(158, 134, 132);
 }
 
 .todo-header {
-    display: flex;
-    border-top-right-radius: 10px;
-    border-top-left-radius: 10px;
-    padding: 0.5rem;
-    align-items: center;
-    position: relative;
+  display: flex;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  padding: 0.5rem;
+  align-items: center;
+  position: relative;
 }
 
 .completed-todo .todo-header {
-    background-color: rgb(202, 202, 202);
-    border: 2px solid rgb(121, 121, 121);  
+  background-color: rgb(202, 202, 202);
+  border: 2px solid rgb(121, 121, 121);
 }
 
 .blue .todo-header {
-    background-color: rgb(85, 127, 218);
-    border: 2px solid rgb(0, 19, 128);
+  background-color: rgb(85, 127, 218);
+  border: 2px solid rgb(0, 19, 128);
 }
 
 .yellow .todo-header {
-    background-color: rgb(218, 209, 85);
-    border: 2px solid rgb(128, 126, 0);
+  background-color: rgb(218, 209, 85);
+  border: 2px solid rgb(128, 126, 0);
 }
 
 .red .todo-header {
-    background-color: rgb(218, 94, 85);
-    border: 2px solid rgb(128, 19, 0);
+  background-color: rgb(218, 94, 85);
+  border: 2px solid rgb(128, 19, 0);
 }
 
 .active,
 .completed {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
-    grid-auto-rows: min-content;
-    align-items: start;
-    gap: 1rem;
-    padding: 0 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-auto-rows: min-content;
+  align-items: start;
+  gap: 1rem;
+  padding: 0 2rem;
 }
 
 .active-header,
 .completed-header {
-    font-size: 2rem;
-    color: black;
-    display: block;
-    margin: 1rem 2.5rem;
-    border-bottom: 2px solid black;
-    padding-bottom: .5rem;
+  font-size: 2rem;
+  color: black;
+  display: block;
+  margin: 1rem 2.5rem;
+  border-bottom: 2px solid black;
+  padding-bottom: 0.5rem;
 }
 
 .todo-title {
-    font-size: 1.3rem;
-    text-wrap: wrap;
-    overflow: none;
+  font-size: 1.3rem;
+  text-wrap: wrap;
+  overflow: none;
 }
 
 .todo-info {
-    border-bottom-right-radius: 10px;
-    border-bottom-left-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    padding: 0.5rem;
-    position: relative;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  position: relative;
 }
 
 .completed-todo .todo-info {
-    background-color: rgb(228, 228, 228);
-    border: 2px solid rgb(126, 126, 126);
-    border-top: none; 
+  background-color: rgb(228, 228, 228);
+  border: 2px solid rgb(126, 126, 126);
+  border-top: none;
 }
 
 .blue .todo-info {
-    background-color: rgb(203, 207, 214);
-    border: 2px solid rgb(0, 19, 128);
-    border-top: none;
+  background-color: rgb(203, 207, 214);
+  border: 2px solid rgb(0, 19, 128);
+  border-top: none;
 }
 
 .yellow .todo-info {
-    background-color: rgb(214, 212, 203);
-    border: 2px solid rgb(128, 126, 0);
-    border-top: none;
+  background-color: rgb(214, 212, 203);
+  border: 2px solid rgb(128, 126, 0);
+  border-top: none;
 }
 
 .red .todo-info {
-    background-color: rgb(214, 204, 203);
-    border: 2px solid rgb(128, 19, 0);
-    border-top: none;
+  background-color: rgb(214, 204, 203);
+  border: 2px solid rgb(128, 19, 0);
+  border-top: none;
 }
 
 .collapsed .todo-info {
-    display: none;
+  display: none;
 }
 
 .collapsed .todo-header {
-    border-radius: 10px;
+  border-radius: 10px;
 }
 
 .todo-info button {
-    width: min-content;
+  width: min-content;
 }
 
 .todo-info .description {
-    font-weight: 700;
-    margin-bottom: .25rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
 }
 
 #todo-completed {
-    appearance: none;
+  appearance: none;
 }
 
 #todo-completed:before {
-    display: block;
-    width: 1.2rem;
-    height: 1.2rem;
-    background-color: white;
-    border-radius: 16px;
-    content: '';
-    border: 2px solid rgb(85, 127, 218);
-    margin: 0 .75rem 0 .25rem;
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+  background-color: white;
+  border-radius: 16px;
+  content: "";
+  border: 2px solid rgb(85, 127, 218);
+  margin: 0 0.75rem 0 0.25rem;
 }
 
 .completed-todo #todo-completed:before {
-    border: 2px solid rgb(28, 172, 28);
-    background-color: rgb(74, 223, 74);
-    content: '✓';
-    font-size: 1.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: green;
+  border: 2px solid rgb(28, 172, 28);
+  background-color: rgb(74, 223, 74);
+  content: "✓";
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: green;
 }
 
 .blue #todo-completed:before {
-    border: 2px solid rgb(85, 127, 218);
+  border: 2px solid rgb(85, 127, 218);
 }
 
 .yellow #todo-completed:before {
-    border: 2px solid rgb(218, 209, 85);
+  border: 2px solid rgb(218, 209, 85);
 }
 
 .red #todo-completed:before {
-    border: 2px solid rgb(218, 94, 85);
+  border: 2px solid rgb(218, 94, 85);
 }
 
 .completed-todo #todo-completed:hover:before {
-    border: 2px solid rgb(167, 167, 167);
-    background-color: rgb(240, 240, 240);
-    cursor: grab;
-    color: gray;
-    content: '';
+  border: 2px solid rgb(167, 167, 167);
+  background-color: rgb(240, 240, 240);
+  cursor: grab;
+  color: gray;
+  content: "";
 }
 
 #todo-completed:hover:before {
-    border: 2px solid rgb(28, 172, 28);
-    background-color: rgb(74, 223, 74);
-    content: '✓';
-    font-size: 1.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: green;
-    cursor: grab;
+  border: 2px solid rgb(28, 172, 28);
+  background-color: rgb(74, 223, 74);
+  content: "✓";
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: green;
+  cursor: grab;
 }
 
 .toggle-info {
-    background-color: inherit;
-    position: absolute;
-    right: .5rem;
-    font-size: 1rem;
-    text-align: center;
-    line-height: 1rem;
+  background-color: inherit;
+  position: absolute;
+  right: 0.5rem;
+  font-size: 1rem;
+  text-align: center;
+  line-height: 1rem;
 }
 
 .toggle-info {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .collapsed .toggle-info {
-    transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
 .toggle-info:hover {
-    cursor: grab;
+  cursor: grab;
 }
 
 dialog {
-    width: max(50%, 40rem);
-    margin-top: 4rem;
-    justify-self: center;
-    border-radius: 10px;
-    border: 2px solid black;
-    padding: 0;
+  width: max(50%, 40rem);
+  margin-top: 4rem;
+  justify-self: center;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 0;
 }
 
 .dialog-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
 
 dialog h2 {
-    padding: 12px 0px 12px 12px;
-    width: 100% - 12px;
-    border-bottom: 2px solid black;
-    background-color: lightgray;
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit;
+  padding: 12px 0px 12px 12px;
+  width: 100% - 12px;
+  border-bottom: 2px solid black;
+  background-color: lightgray;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
 }
 
 dialog form {
-    width: 100%;
+  width: 100%;
 }
 
 form {
-    font-size: 1.2rem;
-    text-align: center;
+  font-size: 1.2rem;
+  text-align: center;
 }
 
 dialog .text-info {
-    padding: 18px 12px 12px;
+  padding: 18px 12px 12px;
 }
 
 dialog .text-info,
 dialog .text-info label {
-    font-size: 1.2rem;
-    display: flex;
-    align-items: center;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
 }
 
 dialog .text-info label {
-    margin-right: 6px;
+  margin-right: 6px;
 }
 
 dialog .text-info input,
 dialog .text-info textarea {
-    margin-left: 8px;
+  margin-left: 8px;
 }
 
 dialog #title {
-    font-size: 1rem;
-    outline: 1px solid black;
-    border-radius: 2px;
-    padding: 2px;
+  font-size: 1rem;
+  outline: 1px solid black;
+  border-radius: 2px;
+  padding: 2px;
 }
 
 dialog #description {
-    font-size: 1rem;
-    outline: 1px solid black;
-    border-radius: 2px;
-    padding: 2px;
-    resize: none;
-    white-space: nowrap;
-    overflow: hidden;
-    flex: 2;
+  font-size: 1rem;
+  outline: 1px solid black;
+  border-radius: 2px;
+  padding: 2px;
+  resize: none;
+  white-space: nowrap;
+  overflow: hidden;
+  flex: 2;
 }
 
 dialog .description {
-    flex: 2;
-    margin-left: 6px;
+  flex: 2;
+  margin-left: 6px;
 }
 
 dialog .other-info {
-    padding: 6px 12px 12px;
+  padding: 6px 12px 12px;
 }
 
 fieldset legend,
 fieldset label,
 fieldset div {
-    float: left;
-    font-size: 1.2rem;
+  float: left;
+  font-size: 1.2rem;
 }
 
 fieldset {
-    padding: 0;
-    display: flex;
-    align-items: center;
-    margin-right: .5rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
 }
 
 fieldset div {
-    height: 100%;
-    display: flex;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 input[type="radio"] {
-    appearance: none;
-    height: 1.2rem;
-    width: 1.2rem;
-    border-radius: 24px;
-    margin: 1px 4px;
+  appearance: none;
+  height: 1.2rem;
+  width: 1.2rem;
+  border-radius: 24px;
+  margin: 1px 4px;
 }
 
 input[type="radio"]:hover {
-    cursor: grab;
+  cursor: grab;
 }
 
 #blue {
-    border: 4px solid blue;
-    outline: 2px solid rgb(20, 0, 133);
-
+  border: 4px solid blue;
+  outline: 2px solid rgb(20, 0, 133);
 }
 
 #blue:checked {
-    background-color: blue;
+  background-color: blue;
 }
 
 #yellow {
-    border: 4px solid rgb(233, 233, 4);
-    outline: 2px solid rgb(163, 160, 0);
+  border: 4px solid rgb(233, 233, 4);
+  outline: 2px solid rgb(163, 160, 0);
 }
 
 #yellow:checked {
-    background-color: rgb(233, 233, 4);
+  background-color: rgb(233, 233, 4);
 }
 
 #red {
-    border: 4px solid red;
-    outline: 2px solid rgb(172, 0, 0);
+  border: 4px solid red;
+  outline: 2px solid rgb(172, 0, 0);
 }
 
 #red:checked {
-    background-color: red;
+  background-color: red;
 }
 
 dialog #assign-project {
-    font-size: 1.2rem;
-    border: 1px solid black;
-    border-radius: 4px;
+  font-size: 1.2rem;
+  border: 1px solid black;
+  border-radius: 4px;
 }
 
 dialog .other-info {
-    display: flex;
+  display: flex;
 }
 
 dialog::backdrop {
-    background: rgba(0, 0, 0, 0.226);
+  background: rgba(0, 0, 0, 0.226);
 }
 
 #due {
-    font-size: 1.2rem;
-    outline: 1px solid black;
-    border-radius: 2px;
-    margin-left: .25rem;
+  font-size: 1.2rem;
+  outline: 1px solid black;
+  border-radius: 2px;
+  margin-left: 0.25rem;
 }
 
 .due {
-    display: flex;
-    align-items: center;
-    margin-left: .5rem;
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
 }
 
 .creation-date,
 .due-date {
-    font-style: italic;
+  font-style: italic;
 }
 
 .delete {
-    position: absolute;
-    right: .15rem;
-    bottom: .25rem;
-    background-color: inherit;
-    font-size: 1.2rem;
-    color: inherit;
+  position: absolute;
+  right: 0.15rem;
+  bottom: 0.25rem;
+  background-color: inherit;
+  font-size: 1.2rem;
+  color: inherit;
 }
 
 .delete:hover {
-    cursor: pointer;
-    color: gray;
+  cursor: pointer;
+  color: gray;
 }
 
 .edit {
-    position: absolute;
-    right: 1.75rem;
-    bottom: .25rem;
-    background-color: inherit;
-    font-size: 1.2rem;
-    color: inherit;
+  position: absolute;
+  right: 1.75rem;
+  bottom: 0.25rem;
+  background-color: inherit;
+  font-size: 1.2rem;
+  color: inherit;
 }
 
 .edit:hover {
-    cursor: pointer;
-    color: gray;
+  cursor: pointer;
+  color: gray;
 }
 
 .save-button {
-    position: absolute;
-    right: .5rem;
-    bottom: .5rem;
-    border: 2px solid black;
-    border-radius: 4px;
-    font-size: 1rem;
-    padding: .25rem .75rem;
-    background-color: lightgray;
-    margin-left: .5rem;
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  border: 2px solid black;
+  border-radius: 4px;
+  font-size: 1rem;
+  padding: 0.25rem 0.75rem;
+  background-color: lightgray;
+  margin-left: 0.5rem;
 }
 
 .save-button:hover {
-    background-color: rgb(223, 223, 223);
-    cursor: grab;
+  background-color: rgb(223, 223, 223);
+  cursor: grab;
 }
 
 .project-dialog {
-    width: max(30%, 20rem);
-    margin-top: 4rem;
-    justify-self: center;
-    border-radius: 10px;
-    border: 2px solid black;
-    padding: 0;
+  width: max(30%, 20rem);
+  margin-top: 4rem;
+  justify-self: center;
+  border-radius: 10px;
+  border: 2px solid black;
+  padding: 0;
 }
 
 .project-dialog-container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
 }
 
 dialog h2 {
-    padding: 12px 0px 12px 12px;
-    width: 100% - 12px;
-    border-bottom: 2px solid black;
-    background-color: lightgray;
-    border-top-left-radius: inherit;
-    border-top-right-radius: inherit;
+  padding: 12px 0px 12px 12px;
+  width: 100% - 12px;
+  border-bottom: 2px solid black;
+  background-color: lightgray;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
 }
 
 .project-dialog-container label {
-    margin: 1.5rem 1rem;
-    font-size: 1.2rem;
+  margin: 1.5rem 1rem;
+  font-size: 1.2rem;
 }
 
-#project { 
-    outline: 1px solid black;
-    border-radius: 4px;
-    font-size: 1.2rem;
+#project {
+  outline: 1px solid black;
+  border-radius: 4px;
+  font-size: 1.2rem;
 }
 
 .project-button {
-    position: absolute;
-    right: .5rem;
-    bottom: .5rem;
-    border: 2px solid black;
-    border-radius: 4px;
-    font-size: 1rem;
-    padding: .25rem .75rem;
-    background-color: lightgray;
+  position: absolute;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  border: 2px solid black;
+  border-radius: 4px;
+  font-size: 1rem;
+  padding: 0.25rem 0.75rem;
+  background-color: lightgray;
 }
 
 .project-button:hover {
-    background-color: rgb(223, 223, 223);
-    cursor: grab;
+  background-color: rgb(223, 223, 223);
+  cursor: grab;
 }
 
 .dialog-container,
 .project-dialog-container {
-    position: relative;
+  position: relative;
 }
 
 .close {
-    font-size: 1rem;
-    position: absolute;
-    right: .5rem;
-    top: .25rem;
-    background-color: inherit;
+  font-size: 1rem;
+  position: absolute;
+  right: 0.5rem;
+  top: 0.25rem;
+  background-color: inherit;
 }
 
 .close:hover {
-    color: gray;
-    cursor: pointer;
+  color: gray;
+  cursor: pointer;
 }

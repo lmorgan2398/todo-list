@@ -1,109 +1,130 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Todo List</title>
-</head>
-<body>
-<div class="header-container">
-    <div class="sort-info">
+  </head>
+  <body>
+    <div class="header-container">
+      <div class="sort-info">
         <h2 class="current-sort">All Tasks</h2>
-        <label for="order" class="order">Ordered By:
-            <select name="order" id="order" class="order">
-                <option value="dueNew">Due Date (newest to oldest)</option>
-                <option value="dueOld">Due Date (oldest to newest)</option>
-                <option value="creationNew">Created Date (newest to oldest)</option>
-                <option value="creationOld">Created Date (oldest to newest)</option>
-                <option value="priority">Priority</option>
-                <option value="nameAsc">Name (ascending)</option>
-                <option value="nameDesc">Name (descending)</option>
-            </select>
+        <label for="order" class="order"
+          >Ordered By:
+          <select name="order" id="order" class="order">
+            <option value="dueNew">Due Date (newest to oldest)</option>
+            <option value="dueOld">Due Date (oldest to newest)</option>
+            <option value="creationNew">Created Date (newest to oldest)</option>
+            <option value="creationOld">Created Date (oldest to newest)</option>
+            <option value="priority">Priority</option>
+            <option value="nameAsc">Name (ascending)</option>
+            <option value="nameDesc">Name (descending)</option>
+          </select>
         </label>
-    </div>
-    <div class="creation-tools">
+      </div>
+      <div class="creation-tools">
         <button class="new-todo">New To-Do</button>
         <button class="new-project">New Project</button>
+      </div>
     </div>
-</div>
-<div class="sidebar-container">
-    <div class="logo"><span class="blue-span">todo</span><span class="yellow-span">-</span>list <span class="green-span">&#x2611;</span></div>
-    <div class="presort-header-container">
+    <div class="sidebar-container">
+      <div class="logo">
+        <span class="blue-span">todo</span
+        ><span class="yellow-span">-</span>list
+        <span class="green-span">&#x2611;</span>
+      </div>
+      <div class="presort-header-container">
         <h2 class="presort-header">Sort By:</h2>
-    </div>
-    <div class="presort-container">
+      </div>
+      <div class="presort-container">
         <button class="all sort" data-sort="all">All Tasks</button>
         <button class="today sort" data-sort="today">Today</button>
         <button class="this-week sort" data-sort="thisWeek">This Week</button>
-        <button class="this-month sort" data-sort="thisMonth">This Month</button>
+        <button class="this-month sort" data-sort="thisMonth">
+          This Month
+        </button>
         <button class="overdue sort" data-sort="overdue">Overdue</button>
-    </div>
-    <div class="projects-header-container">
+      </div>
+      <div class="projects-header-container">
         <h2 class="projects-header">Projects:</h2>
+      </div>
+      <div class="projects-container"></div>
     </div>
-    <div class="projects-container">
-    </div>
-</div>
-<div class="content-container">
-    <div class="lists-container">
+    <div class="content-container">
+      <div class="lists-container">
         <h2 class="active-header">Active &#x2610;</h2>
-        <div class="active">
-        </div>
+        <div class="active"></div>
         <h2 class="completed-header">Completed &#x2611;</h2>
         <div class="completed"></div>
+      </div>
     </div>
-</div>
-<dialog>
-    <div class="dialog-container">
+    <dialog>
+      <div class="dialog-container">
         <h2>New Todo</h2>
         <button class="close">&#x2716;</button>
         <form>
-            <div class="text-info">
-                <label for="title">Title:
-                    <input type="text" name="title" id="title" maxlength="50">
+          <div class="text-info">
+            <label for="title"
+              >Title:
+              <input type="text" name="title" id="title" maxlength="50" />
+            </label>
+            <label class="description" for="description"
+              >Description:
+              <textarea name="description" id="description" rows="1"></textarea>
+            </label>
+          </div>
+          <div class="other-info">
+            <fieldset>
+              <legend>Priority:</legend>
+              <div class="priorities">
+                <label for="blue">
+                  <input
+                    type="radio"
+                    id="blue"
+                    name="priority"
+                    value="blue"
+                    checked
+                  />
                 </label>
-                <label class="description" for="description">Description:
-                    <textarea name="description" id="description" rows="1"></textarea>
+                <label for="yellow">
+                  <input
+                    type="radio"
+                    name="priority"
+                    id="yellow"
+                    value="yellow"
+                  />
                 </label>
-            </div>
-            <div class="other-info">
-                <fieldset>
-                    <legend>Priority:</legend>
-                    <div class="priorities">
-                        <label for="blue">
-                            <input type="radio" id="blue" name="priority" value="blue" checked>
-                        </label>
-                        <label for="yellow">
-                            <input type="radio" name="priority" id="yellow" value="yellow">
-                        </label>
-                        <label for="red">
-                            <input type="radio" name="priority" id="red" value="red">
-                        </label>
-                    </div>
-                </fieldset>
-                <label for="project" class="assign-project">Project:
-                    <select name="projects" id="assign-project">
-                        <option value="None">None</option>
-                    </select>
+                <label for="red">
+                  <input type="radio" name="priority" id="red" value="red" />
                 </label>
-                <label for="due" class="due">Due Date:
-                    <input type="date" name="due" id="due" placeholder="None">
-                </label>
-                <button type="button" class="save-button">Save</button>
-            </div>
+              </div>
+            </fieldset>
+            <label for="project" class="assign-project"
+              >Project:
+              <select name="projects" id="assign-project">
+                <option value="None">None</option>
+              </select>
+            </label>
+            <label for="due" class="due"
+              >Due Date:
+              <input type="date" name="due" id="due" placeholder="None" />
+            </label>
+            <button type="button" class="save-button">Save</button>
+          </div>
         </form>
-    </div>
-</dialog>
-<dialog class="project-dialog">
-    <div class="project-dialog-container">
+      </div>
+    </dialog>
+    <dialog class="project-dialog">
+      <div class="project-dialog-container">
         <h2>New Project</h2>
         <button class="close">&#x2716;</button>
-        <label for="project">Project Name:
-            <input type="text" name="project" id="project">
-            <button type="button" class="project-button">Save</button>
+        <label for="project"
+          >Project Name:
+          <input type="text" name="project" id="project" />
+          <button type="button" class="project-button">Save</button>
         </label>
-    </div>
-</dialog>
+      </div>
+    </dialog>
     <script src="index.js" type="module"></script>
-</body>
+  </body>
 </html>
